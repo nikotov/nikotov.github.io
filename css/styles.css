@@ -1,0 +1,120 @@
+body {
+    background-color: #111;
+}
+
+h1 {
+    letter-spacing: -2px;
+}
+
+.text-info {
+    color: #2a6f7c !important;
+}
+
+.text-danger {
+    color: #7c2a2a !important;
+}
+
+img {
+    max-height: 700px;
+    object-fit: cover;
+}
+
+/* Responsive font sizes */
+@media (min-width: 768px) {
+    h2 {
+        font-size: 6rem;
+    }
+    
+    p {
+        font-size: 2.5rem;
+    }
+    
+    .bottom-nav a {
+        font-size: 1.5rem;
+    }
+}
+
+.nav-link {
+    font-size: 1.1rem;
+}
+
+.page-content {
+    --content-scale: 0.9;
+    zoom: var(--content-scale);
+}
+
+@supports not (zoom: 1) {
+    .page-content {
+        font-size: var(--content-scale);
+    }
+}
+
+.top-bar {
+    --top-btn-scale: 1.5;
+}
+
+.top-bar .btn {
+    font-size: calc(1.15rem * var(--top-btn-scale));
+    font-weight: 600;
+    border-width: 2px;
+    line-height: 1;
+}
+
+.top-bar .btn.btn-sm:not(.rounded-circle) {
+    --bs-btn-padding-y: calc(0.16rem * var(--top-btn-scale));
+}
+
+.top-bar .btn.rounded-circle {
+    width: calc(2rem * var(--top-btn-scale));
+    height: calc(2rem * var(--top-btn-scale));
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-bar .btn.contact-square-btn {
+    width: auto;
+    height: calc(2rem * var(--top-btn-scale));
+    font-size: calc(0.85rem * var(--top-btn-scale));
+    padding: 0 calc(0.4rem * var(--top-btn-scale));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(0.16rem * var(--top-btn-scale));
+}
+
+.top-bar .btn .fa {
+    font-size: calc(1.2rem * var(--top-btn-scale));
+}
+
+
+/* Top bar button hover/focus */
+.top-bar .btn {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.top-bar .btn:hover {
+    background-color: #7c2a2a;
+    color: #fff;
+    border-color: #7c2a2a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+}
+
+.top-bar .btn:active {
+    
+    box-shadow: none;
+}
+
+.top-bar .btn:focus-visible {
+    outline: 2px solid #7c2a2a;
+    outline-offset: 2px;
+}
+
+/* Keep icon color synced on hover/focus */
+.top-bar .btn:hover .fa,
+.top-bar .btn:focus-visible .fa {
+    color: inherit;
+}
