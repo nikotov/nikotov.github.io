@@ -4,29 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact | Niko</title>
+    <meta name="description" content="Get in touch with Nicolas Tovar for freelance or full-time opportunities.">
+    <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/contact.css">
 </head>
-<body class="bg-dark">
-    <div class="container-fluid bg-light min-vh-100 p-4 p-md-5">
-        <header class="top-bar d-flex justify-content-end align-items-center gap-3 mb-4">
-            <a href="https://github.com/nikotov" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                <i class="fa fa-github"></i>
+<body>
+    <main class="site-frame">
+        <header class="frame-header">
+            <a href="index.html" class="logo-link" aria-label="Niko's homepage">
+                <img src="resources/logo.svg" alt="Niko logo" class="logo-mark">
             </a>
-            <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                <i class="fa fa-linkedin"></i>
-            </a>
-            <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-dark btn-sm rounded-4 contact-square-btn" aria-label="Send email">
-                <i class="fa fa-envelope"></i> Contact
-            </a>
+
+            <nav class="top-bar" aria-label="Profile links">
+                <a href="https://github.com/nikotov" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-dark btn-sm rounded-4 contact-square-btn" aria-label="Send email">
+                    <i class="fa fa-envelope"></i> Contact
+                </a>
+            </nav>
         </header>
 
-        <section class="contact-panel">
-            <div class="row g-4 align-items-start">
-                <div class="col-lg-5">
-                    <img src="resources/logo.svg" alt="Niko logo" class="img-fluid contact-logo">
-                    <h1 class="contact-title">Let's Connect</h1>
+        <section class="canvas" aria-label="Contact page content">
+            <div class="title-row">
+                <h1>Let's Connect</h1>
+                <span class="stripes" aria-hidden="true"></span>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
                     <p class="contact-copy">
                         Have a project in mind, a collaboration idea, or just want to say hello?
                         Send me a message and I will get back to you as soon as possible.
@@ -39,46 +54,67 @@
                     </div>
                 </div>
 
-                <div class="col-lg-7">
-                    <form class="contact-form" action="#" method="post">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="subject" class="form-label">Subject</label>
-                                <input type="text" class="form-control" id="subject" name="subject" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
-                            </div>
-                            <div class="col-12 text-end">
-                                <button type="submit" class="btn btn-dark submit-btn">Send Message</button>
-                            </div>
+                <!--
+                  NOTE: This is a static site (GitHub Pages), so a <form action="#"> can't
+                  actually send anything. Point this at a form backend such as Formspree
+                  (https://formspree.io) or Netlify Forms, e.g.:
+                    <form action="https://formspree.io/f/your-form-id" method="POST">
+                  Until that's set up, this mailto fallback opens the user's email client
+                  pre-filled with whatever they've written.
+                -->
+                <form class="contact-form" action="#" method="post" id="contact-form">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
                         </div>
-                    </form>
-                </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-dark submit-btn">Send Message</button>
+                        </div>
+                    </div>
+                </form>
             </div>
 
-            <nav class="bottom-nav text-center mt-5 pt-4 border-top" aria-label="Page navigation">
-                <a href="aboutme.html" class="mx-3 text-dark">About Me</a>
-                <a href="projects.html" class="mx-3 text-dark">Projects</a>
-                <a href="gallery.html" class="mx-3 text-dark">Gallery</a>
-                <a href="contact.html" class="mx-3 text-dark">Contact</a>
-            </nav>
+            <div class="pill-row" aria-label="Page navigation">
+                <span class="stripes" aria-hidden="true"></span>
+                <a href="aboutme.html">About me</a>
+                <a href="projects.html">Projects</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="#">Contact</a>
+                <span class="stripes" aria-hidden="true"></span>
+            </div>
         </section>
-    </div>
 
-    <footer class="bg-black text-white text-center py-3">
-        <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
-    </footer>
+        <footer class="frame-footer">
+            <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
+        </footer>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Temporary client-side fallback until a real form backend (Formspree/Netlify)
+        // is wired up to the action attribute above.
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const email = document.getElementById('email').value;
+            const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+            window.location.href = `mailto:nicolastovar18@hotmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        });
+    </script>
 </body>
 </html>

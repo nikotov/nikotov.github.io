@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projects | Niko</title>
+    <meta name="description" content="Two projects by Nicolas Tovar: Get Otter Here!, a one-button Godot game that won Hack2Interact, and Clean CRM, an open-source WhatsApp campaign tool.">
+    <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/projects.css">
 </head>
 <body>
-    <main class="projects-frame">
+    <main class="site-frame">
         <header class="frame-header">
             <a href="index.html" class="logo-link" aria-label="Niko's homepage">
                 <img src="resources/logo.svg" alt="Niko logo" class="logo-mark">
@@ -32,67 +35,120 @@
         </header>
 
         <section class="canvas" aria-label="Projects content">
-            <section class="projects-block">
+            <div class="title-row">
                 <h1>Projects</h1>
+                <span class="stripes" aria-hidden="true"></span>
+            </div>
+            <p class="projects-intro">Two projects I'm proudest of: a game jam winner built around one rule, and an open-source tool built around one workflow.</p>
 
-                <div class="projects-grid">
-                    <article class="project-card card-routes">
-                        <div class="project-thumb thumb-routes" aria-hidden="true">
-                            <i class="fa fa-map-o"></i>
-                        </div>
-                        <div class="project-content">
-                            <h2>Routes App</h2>
-                            <p>
-                                Route planning app with clean wayfinding, stop previews, and quick
-                                transit decisions. Built to keep trip information readable even on
-                                small screens and busy city flows.
-                            </p>
-                        </div>
-                    </article>
+            <!-- ============ SPOTLIGHT 1: GET OTTER HERE! ============ -->
+            <article class="spotlight spotlight--game">
+                <div class="spotlight-media">
+                    <div class="shot-stack">
+                        <figure class="shot shot-a">
+                            <img src="resources/otter1.jpeg" alt="Get Otter Here! gameplay screenshot 1" loading="lazy">
+                        </figure>
+                        <figure class="shot shot-b">
+                            <img src="resources/otter2.jpg" alt="Get Otter Here! gameplay screenshot 2" loading="lazy">
+                        </figure>
+                    </div>
 
-                    <article class="project-card card-paying">
-                        <div class="project-thumb thumb-paying" aria-hidden="true">
-                            <i class="fa fa-credit-card"></i>
+                    <div class="control-diagram" role="img" aria-label="Diagram showing the game is controlled with mouse movement to aim and a single click to act">
+                        <div class="control-node control-mouse">
+                            <i class="fa fa-mouse-pointer"></i>
+                            <span>aim</span>
                         </div>
-                        <div class="project-content">
-                            <h2>Paying App</h2>
-                            <p>
-                                Payment prototype focused on fast checkout and trust signals. Includes
-                                clear amount confirmation, transaction status feedback, and thoughtful
-                                visual hierarchy for secure interactions.
-                            </p>
+                        <div class="control-line" aria-hidden="true"></div>
+                        <div class="control-node control-click">
+                            <span class="click-ring"></span>
+                            <span>act</span>
                         </div>
-                    </article>
-
-                    <article class="project-card card-poker">
-                        <div class="project-thumb thumb-poker" aria-hidden="true">
-                            <i class="fa fa-gamepad"></i>
-                        </div>
-                        <div class="project-content">
-                            <h2>Poker Bot</h2>
-                            <p>
-                                Strategy assistant for poker rounds with probability hints and hand
-                                evaluation logic. Designed to make decision support simple, fast,
-                                and useful for practice sessions.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="project-card card-photo">
-                        <div class="project-thumb thumb-photo" aria-hidden="true">
-                            <i class="fa fa-camera"></i>
-                        </div>
-                        <div class="project-content">
-                            <h2>Photo Dump</h2>
-                            <p>
-                                Visual archive concept for organizing image collections by mood,
-                                location, and date. Emphasis on quick browsing, meaningful grouping,
-                                and lightweight upload management.
-                            </p>
-                        </div>
-                    </article>
+                    </div>
                 </div>
-            </section>
+
+                <div class="spotlight-copy">
+                    <p class="eyebrow">Hack2Interact Game Jam &mdash; Winner</p>
+                    <h2>Get Otter Here!</h2>
+                    <p class="tagline">A game where the entire control scheme is a mouse and one button.</p>
+
+                    <p>
+                        Every mechanic, movement, timing, decisions, had to be expressed through a single
+                        click and where you point the cursor. I directed the team through that constraint:
+                        keeping the design honest to "one button" while making sure it never felt thin.
+                        My own work was split between optimization, keeping the game smooth on modest
+                        hardware during a tight jam deadline, and the visual polish that gives each level
+                        its personality.
+                    </p>
+                    <p>
+                        It placed first at Hack2Interact, judged on how fully a team could build a complete,
+                        polished experience around one restriction.
+                    </p>
+
+                    <ul class="tech-badges" aria-label="Technology used">
+                        <li>Godot</li>
+                        <li>GDScript</li>
+                        <li>One-button design</li>
+                    </ul>
+
+                    <div class="spotlight-actions">
+                        <a href="resources/downloads/get-otter-here.zip" class="btn-spot btn-spot--primary" download>
+                            <i class="fa fa-download"></i> Download for Windows
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============ SPOTLIGHT 2: CLEAN CRM ============ -->
+            <article class="spotlight spotlight--crm">
+                <div class="spotlight-copy">
+                    <p class="eyebrow">Open Source &mdash; GitHub</p>
+                    <h2>Clean CRM</h2>
+                    <p class="tagline">A lightweight CRM built to run WhatsApp campaigns without the bloat.</p>
+
+                    <p>
+                        Clean CRM connects to the YCloud API so a team can plan, send, and track WhatsApp
+                        campaigns from one clean interface instead of juggling spreadsheets and a separate
+                        messaging dashboard. The goal was to keep the whole stack simple enough that anyone
+                        could read the codebase in an afternoon: server-rendered templates, a straightforward
+                        relational schema, and migrations that actually document what changed and why.
+                    </p>
+
+                    <div class="flow-diagram" role="img" aria-label="Diagram showing the campaign flow: Contact list to Campaign to YCloud API to WhatsApp delivery">
+                        <span class="flow-node">Contact list</span>
+                        <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="flow-node">Campaign</span>
+                        <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="flow-node">YCloud API</span>
+                        <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="flow-node flow-node--accent">WhatsApp</span>
+                    </div>
+
+                    <ul class="tech-badges" aria-label="Technology used">
+                        <li>Python</li>
+                        <li>Jinja2</li>
+                        <li>PostgreSQL</li>
+                        <li>Alembic</li>
+                        <li>YCloud API</li>
+                    </ul>
+
+                    <div class="spotlight-actions">
+                        <a href="https://github.com/nikotov/clean_crm/tree/main" class="btn-spot btn-spot--primary" target="_blank" rel="noopener noreferrer">
+                            <i class="fa fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="spotlight-media">
+                    <div class="shot-stack shot-stack--crm">
+                        <figure class="shot shot-a">
+                            <img src="resources/crm1.jpg" alt="Clean CRM dashboard screenshot 1" loading="lazy">
+                        </figure>
+                        <figure class="shot shot-b">
+                            <img src="resources/crm2.jpg" alt="Clean CRM dashboard screenshot 2" loading="lazy">
+                        </figure>
+                    </div>
+                </div>
+            </article>
 
             <div class="pill-row" aria-label="Page navigation">
                 <span class="stripes" aria-hidden="true"></span>

@@ -1,277 +1,281 @@
 :root {
-    --frame-bg: #f2f2f2;
     --canvas-bg: #030607;
-    --accent-red: #8c1e34;
-    --title-green: #6f7f75;
-    --text-light: #ececec;
+    --game-accent: #3fa7a0;
+    --game-accent-dim: #1f4a47;
+    --crm-accent: #25d366;
+    --crm-accent-dim: #123a24;
 }
 
-* {
-    box-sizing: border-box;
+/* Shared header/top-bar/canvas/title-row/stripes/pill-row/footer rules
+   live in base.css. This file only covers the two project spotlights. */
+
+.canvas {
+    padding: 1.1rem 1.4rem 1.6rem;
 }
 
-body {
+.projects-intro {
+    margin: 0.9rem 0 0;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    max-width: 60ch;
+    color: #cfcfcf;
+}
+
+/* ---------- spotlight sections ---------- */
+
+.spotlight {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: minmax(280px, 42%) 1fr;
+    gap: 2.2rem;
+    align-items: center;
+    padding: 1.6rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+}
+
+.spotlight--crm {
+    grid-template-columns: 1fr minmax(280px, 42%);
+}
+
+.spotlight--crm .spotlight-media {
+    order: 2;
+}
+
+.eyebrow {
+    margin: 0 0 0.35rem;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--spot-accent, var(--title-green));
+}
+
+.spotlight--game { --spot-accent: var(--game-accent); }
+.spotlight--crm { --spot-accent: var(--crm-accent); }
+
+.spotlight-copy h2 {
     margin: 0;
-    background: var(--canvas-bg);
-    color: var(--text-light);
-    font-family: "Nunito Sans", sans-serif;
-    min-height: 100vh;
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(2rem, 3.4vw, 3rem);
+    line-height: 1.05;
+    border-bottom: 4px solid var(--spot-accent, var(--accent-red));
+    display: inline-block;
+    padding-bottom: 0.15rem;
 }
 
-.projects-frame {
-    width: 100%;
-    min-height: 100vh;
+.tagline {
+    margin: 0.75rem 0 0;
+    font-size: 1.15rem;
+    color: var(--spot-accent, var(--text-light));
+    font-weight: 600;
+}
+
+.spotlight-copy p {
+    font-size: 1.02rem;
+    line-height: 1.45;
+    margin: 0.85rem 0 0;
+    color: #d8d8d8;
+}
+
+.tech-badges {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.1rem 0 0;
+    padding: 0;
+}
+
+.tech-badges li {
+    font-family: "Oswald", sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--spot-accent, #d0d0d0);
+    color: var(--spot-accent, #d0d0d0);
+}
+
+.spotlight-actions {
+    margin-top: 1.3rem;
+}
+
+.btn-spot {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-size: 1.05rem;
+    padding: 0.55rem 1.3rem;
+    border-radius: 999px;
+    border: 2px solid var(--spot-accent, #d0d0d0);
+    color: var(--spot-accent, #f2f2f2);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-spot:hover {
+    background: var(--spot-accent, #d0d0d0);
+    color: #0a0a0a;
+    transform: translateY(-2px);
+}
+
+/* ---------- media: screenshot stack ---------- */
+
+.spotlight-media {
     display: flex;
     flex-direction: column;
-    background: var(--frame-bg);
-}
-
-.frame-header {
-    min-height: 66px;
-    padding: 0.65rem 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     gap: 1rem;
 }
 
-.logo-mark {
-    width: min(180px, 42vw);
-    height: auto;
+.shot-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+}
+
+.shot {
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+.shot img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     display: block;
 }
 
-.top-bar {
-    --top-btn-scale: 1.5;
+.shot-b {
+    margin-top: 1.3rem;
+}
+
+.shot-stack--crm .shot-b {
+    margin-top: -1.3rem;
+    margin-bottom: 1.3rem;
+}
+
+/* ---------- signature: one-button control diagram (game) ---------- */
+
+.control-diagram {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    padding: 1rem 0.5rem;
+}
+
+.control-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--game-accent);
+}
+
+.control-node .fa {
+    font-size: 1.8rem;
+}
+
+.click-ring {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 3px solid var(--game-accent);
+    box-shadow: 0 0 0 6px var(--game-accent-dim);
+}
+
+.control-line {
+    width: 70px;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--game-accent) 0,
+        var(--game-accent) 6px,
+        transparent 6px,
+        transparent 12px
+    );
+}
+
+/* ---------- signature: campaign flow diagram (crm) ---------- */
+
+.flow-diagram {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
 }
 
-.top-bar .btn {
-    font-size: calc(1.15rem * var(--top-btn-scale));
-    font-weight: 600;
-    border-width: 2px;
-    line-height: 1;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.top-bar .btn.btn-sm:not(.rounded-circle) {
-    --bs-btn-padding-y: calc(0.16rem * var(--top-btn-scale));
-}
-
-.top-bar .btn.rounded-circle {
-    width: calc(2rem * var(--top-btn-scale));
-    height: calc(2rem * var(--top-btn-scale));
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.top-bar .btn.contact-square-btn {
-    width: auto;
-    height: calc(2rem * var(--top-btn-scale));
-    font-size: calc(0.82rem * var(--top-btn-scale));
-    padding: 0 calc(0.4rem * var(--top-btn-scale));
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: calc(0.16rem * var(--top-btn-scale));
-}
-
-.top-bar .btn .fa {
-    font-size: calc(1.2rem * var(--top-btn-scale));
-}
-
-.top-bar .btn:hover {
-    background-color: #7c2a2a;
-    color: #fff;
-    border-color: #7c2a2a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-}
-
-.canvas {
-    background: var(--canvas-bg);
-    border-top: 1px solid #c7c7c7;
-    padding: 1rem 1rem 1.2rem;
-    flex: 1;
-}
-
-.projects-block h1 {
-    margin: 0;
-    color: var(--title-green);
+.flow-node {
     font-family: "Oswald", sans-serif;
-    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-    line-height: 1;
-    display: inline-block;
-    min-width: min(420px, 100%);
-    border-bottom: 4px solid var(--accent-red);
-    padding-bottom: 0.2rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #d8d8d8;
 }
 
-.projects-grid {
-    margin-top: 0.9rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
+.flow-node--accent {
+    background: var(--crm-accent-dim);
+    color: var(--crm-accent);
 }
 
-.project-card {
-    border-radius: 18px;
-    padding: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    min-height: 350px;
+.flow-arrow {
+    color: var(--crm-accent);
+    font-size: 1.1rem;
 }
 
-.card-routes {
-    background: #245c76;
-}
-
-.card-paying {
-    background: #98923a;
-}
-
-.card-poker {
-    background: #0e4f22;
-}
-
-.card-photo {
-    background: #5f1f32;
-}
-
-.project-thumb {
-    width: 126px;
-    height: 126px;
-    border: 3px solid rgba(255, 255, 255, 0.55);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: #f4f4f4;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24) inset;
-}
-
-.thumb-routes {
-    background: linear-gradient(135deg, #4d8db8 0%, #1f3f52 100%);
-}
-
-.thumb-paying {
-    background: linear-gradient(135deg, #c8c15a 0%, #7f7a28 100%);
-}
-
-.thumb-poker {
-    background: linear-gradient(135deg, #2f8248 0%, #0e311a 100%);
-}
-
-.thumb-photo {
-    background: linear-gradient(135deg, #a85b74 0%, #4a1826 100%);
-}
-
-.project-content {
-    margin-top: 0.7rem;
-}
-
-.project-content h2 {
-    margin: 0;
-    font-family: "Oswald", sans-serif;
-    font-size: clamp(2rem, 3vw, 3rem);
-    line-height: 1;
-    border-bottom: 4px solid rgba(255, 255, 255, 0.9);
-    display: inline-block;
-    padding-bottom: 0.2rem;
-}
-
-.project-content p {
-    margin: 0.65rem 0 0;
-    font-size: clamp(1.05rem, 1.5vw, 1.45rem);
-    line-height: 1.2;
-}
+/* ---------- page nav override ---------- */
+/* base.css sets the default .pill-row; this page just tightens the
+   top margin (spotlights already carry their own spacing) and shrinks
+   the decorative stripes to match the narrower pill-row here. */
 
 .pill-row {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    margin-top: 2.4rem;
 }
 
 .pill-row .stripes {
     width: 92px;
     flex: 0 0 92px;
     height: 26px;
-    background-image: repeating-linear-gradient(
-        115deg,
-        transparent 0,
-        transparent 7px,
-        rgba(115, 126, 133, 0.7) 7px,
-        rgba(115, 126, 133, 0.7) 10px
-    );
-    opacity: 0.8;
 }
 
-.pill-row a {
-    text-decoration: none;
-    color: #f2f2f2;
-    border: 3px solid #d0d0d0;
-    border-radius: 999px;
-    padding: 0.12rem 1rem;
-    font-family: "Oswald", sans-serif;
-    font-size: 1.25rem;
-    line-height: 1.2;
-}
+/* ---------- responsive ---------- */
 
-.pill-row a:hover {
-    color: #101214;
-    background: #efefef;
-}
-
-.frame-footer {
-    text-align: center;
-    color: #232427;
-    padding: 0.42rem;
-    font-family: "Oswald", sans-serif;
-    font-size: 1.4rem;
-}
-
-@media (max-width: 980px) {
-    .projects-grid {
+@media (max-width: 900px) {
+    .spotlight,
+    .spotlight--crm {
         grid-template-columns: 1fr;
     }
 
-    .project-card {
-        min-height: 0;
+    .spotlight--crm .spotlight-media {
+        order: 0;
+    }
+
+    .shot-b,
+    .shot-stack--crm .shot-b {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 
 @media (max-width: 560px) {
-    .frame-header {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .top-bar {
-        width: 100%;
-        justify-content: center;
-        --top-btn-scale: 1.15;
-    }
-
     .canvas {
-        padding: 0.8rem 0.7rem 1rem;
+        padding: 0.9rem 0.8rem 1.2rem;
     }
 
-    .project-thumb {
-        width: 108px;
-        height: 108px;
-        font-size: 2.35rem;
-    }
-
-    .pill-row a {
-        font-size: 1.03rem;
+    .spotlight {
+        padding: 1.1rem;
+        gap: 1.4rem;
     }
 
     .pill-row .stripes {

@@ -4,81 +4,73 @@
     <meta charset="UTF-8">
     <title>Niko's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nicolas Tovar (Niko) — creative developer portfolio: projects, gallery, and contact.">
+    <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-dark">
+<body>
+    <main class="site-frame">
+        <header class="frame-header frame-header--dark">
+            <a href="index.html" class="logo-link" aria-label="Niko's homepage">
+                <img src="resources/logo.svg" alt="Niko logo" class="logo-mark">
+            </a>
 
-<div class="container-fluid bg-light min-vh-100 p-5">
+            <nav class="top-bar" aria-label="Profile links">
+                <a href="https://github.com/nikotov" class="btn btn-outline-light btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-light btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+                <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-light btn-sm rounded-4 contact-square-btn" aria-label="Contact page">
+                    <i class="fa fa-envelope"></i> Contact
+                </a>
+            </nav>
+        </header>
 
-    <!-- Top Bar -->
-    <div class="top-bar d-flex justify-content-end align-items-center gap-3 mb-4">
-        <a href="https://github.com/nikotov" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-            <i class="fa fa-github"></i>
-        </a>
-        <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-            <i class="fa fa-linkedin"></i>
-        </a>
-        <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-dark btn-sm rounded-4 contact-square-btn" aria-label="Contact page">
-            <i class="fa fa-envelope"></i> Contact
-        </a>
-    </div>
+        <section class="canvas hero-canvas" aria-label="Homepage introduction">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <img src="resources/logo.svg" alt="Niko logo" class="hero-logo">
 
-    <div class="page-content">
+                    <div class="hero-headline">
+                        <h2 class="text-info">Innovate</h2>
+                        <h2>Build</h2>
+                        <h2 class="text-danger">Create_</h2>
+                    </div>
 
-    <!-- Main Section -->
-    <div class="row align-items-center">
+                    <p class="hero-lede">
+                        I am a creative developer focused on building modern, user-friendly digital experiences.
+                        I enjoy turning ideas into clean interfaces and reliable code that solve real problems.
+                    </p>
+                </div>
 
-        <!-- Left Column -->
-        <div class="col-lg-6">
-
-            <img src="resources/logo.svg" alt="Logo" class="mb-3 img-fluid" style="max-width: 520px;">
-            <hr class="border-5 opacity-100 w-75">
-
-            <div class="mt-4">
-                <h2 class="text-info fw-semibold">Innovate</h2>
-                <h2 class="fw-semibold">Build</h2>
-                <h2 class="text-danger fw-semibold">Create_</h2>
+                <div class="hero-portrait">
+                    <img src="resources/profile.jpg" alt="Profile photo of Nicolas Tovar" class="img-fluid rounded-4 shadow">
+                </div>
             </div>
 
-            <hr class="border-5 opacity-100 w-75 mt-4">
+            <div class="pill-row" aria-label="Page navigation">
+                <span class="stripes" aria-hidden="true"></span>
+                <a href="aboutme.html">About me</a>
+                <a href="projects.html">Projects</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+                <span class="stripes" aria-hidden="true"></span>
+            </div>
+        </section>
 
-            <p class="mt-4 fs-5">
-                I am a creative developer focused on building modern, user-friendly digital experiences.
-                I enjoy turning ideas into clean interfaces and reliable code that solve real problems.
-            </p>
-
-            <hr class="border-5 opacity-100 w-75 mt-4">
-
-        </div>
-
-        <!-- Right Column -->
-        <div class="col-lg-6 text-center mt-5 mt-lg-0">
-            <img src="resources/profile.jpg" 
-                 class="img-fluid rounded-4 shadow"
-                 alt="Profile Image">
-        </div>
-
-    </div>
-
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav text-center mt-5 pt-4 border-top">
-        <a href="aboutme.html" class="mx-3 text-dark">About Me</a>
-        <a href="projects.html" class="mx-3 text-dark">Projects</a>
-        <a href="gallery.html" class="mx-3 text-dark">Gallery</a>
-        <a href="contact.html" class="mx-3 text-dark">Contact</a>
-    </div>
-
-    </div>
-
-</div>
-
-<footer class="bg-black text-white text-center py-3">
-    <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
-</footer>
+        <footer class="frame-footer">
+            <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
+        </footer>
+    </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

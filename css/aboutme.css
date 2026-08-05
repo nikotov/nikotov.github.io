@@ -1,151 +1,14 @@
+/* Page-specific styles for aboutme.html. Shared header/top-bar/canvas/
+   title-row/pill-row/footer rules live in base.css — this file only
+   covers the about-page layout: portrait card, copy columns, and the
+   education/lifepath text blocks. */
+
 :root {
-    --page-bg: #1a1a1d;
-    --frame-bg: #f2f2f2;
-    --canvas-bg: #07090b;
-    --line-dark: #202226;
-    --accent-red: #8c1e34;
-    --title-green: #6f7f75;
     --title-blue: #1f4c69;
-    --text-light: #dedede;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    background: var(--canvas-bg);
-    color: var(--text-light);
-    font-family: "Nunito Sans", sans-serif;
-}
-
-.site-frame {
-    width: 100%;
-    min-height: 100vh;
-    background: var(--frame-bg);
-    display: flex;
-    flex-direction: column;
-}
-
-.frame-header {
-    min-height: 66px;
-    padding: 0.65rem 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.logo-mark {
-    width: min(180px, 42vw);
-    height: auto;
-    display: block;
-}
-
-.top-bar {
-    --top-btn-scale: 1.5;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.top-bar .btn {
-    font-size: calc(1.15rem * var(--top-btn-scale));
-    font-weight: 600;
-    border-width: 2px;
-    line-height: 1;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.top-bar .btn.btn-sm:not(.rounded-circle) {
-    --bs-btn-padding-y: calc(0.16rem * var(--top-btn-scale));
-}
-
-.top-bar .btn.rounded-circle {
-    width: calc(2rem * var(--top-btn-scale));
-    height: calc(2rem * var(--top-btn-scale));
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.top-bar .btn.contact-square-btn {
-    width: auto;
-    height: calc(2rem * var(--top-btn-scale));
-    font-size: calc(0.85rem * var(--top-btn-scale));
-    padding: 0 calc(0.4rem * var(--top-btn-scale));
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: calc(0.16rem * var(--top-btn-scale));
-}
-
-.top-bar .btn .fa {
-    font-size: calc(1.2rem * var(--top-btn-scale));
-}
-
-.top-bar .btn:hover {
-    background-color: #7c2a2a;
-    color: #fff;
-    border-color: #7c2a2a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-}
-
-.top-bar .btn:active {
-    box-shadow: none;
-}
-
-.top-bar .btn:focus-visible {
-    outline: 2px solid #7c2a2a;
-    outline-offset: 2px;
-}
-
-.top-bar .btn:hover .fa,
-.top-bar .btn:focus-visible .fa {
-    color: inherit;
 }
 
 .canvas {
-    background: var(--canvas-bg);
     padding: 1.15rem 5rem 1.25rem;
-    margin: 0;
-    border-top: 1px solid #c7c7c7;
-    flex: 1;
-}
-
-.title-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.title-row h1 {
-    margin: 0;
-    font-family: "Oswald", sans-serif;
-    font-size: 3rem;
-    color: var(--title-green);
-    line-height: 1;
-    border-bottom: 4px solid var(--accent-red);
-    padding-bottom: 0.2rem;
-    min-width: 43%;
-}
-
-.stripes,
-.small-stripes {
-    height: 36px;
-    flex: 1;
-    background-image: repeating-linear-gradient(
-        115deg,
-        transparent 0,
-        transparent 7px,
-        rgba(115, 126, 133, 0.7) 7px,
-        rgba(115, 126, 133, 0.7) 10px
-    );
-    opacity: 0.8;
 }
 
 .about-grid {
@@ -234,34 +97,21 @@ body {
     min-width: 52%;
 }
 
-.pill-row {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 .small-stripes {
+    height: 26px;
     width: 92px;
     flex: 0 0 92px;
-    height: 26px;
-}
-
-.pill-row a {
-    text-decoration: none;
-    color: #f2f2f2;
-    border: 3px solid #d0d0d0;
-    border-radius: 999px;
-    padding: 0.12rem 1rem;
-    font-family: "Oswald", sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.2;
+    background-image: repeating-linear-gradient(
+        115deg,
+        transparent 0,
+        transparent 7px,
+        rgba(115, 126, 133, 0.7) 7px,
+        rgba(115, 126, 133, 0.7) 10px
+    );
+    opacity: 0.8;
 }
 
 @media (min-width: 768px) {
-    .title-row h1,
     .text-block h2 {
         font-size: 6rem;
     }
@@ -270,23 +120,6 @@ body {
     .text-block p {
         font-size: 2.2rem;
     }
-
-    .pill-row a {
-        font-size: 1.5rem;
-    }
-}
-
-.pill-row a:hover {
-    color: #101214;
-    background: #efefef;
-}
-
-.frame-footer {
-    text-align: center;
-    color: #232427;
-    padding: 0.42rem;
-    font-family: "Oswald", sans-serif;
-    font-size: 1.8rem;
 }
 
 @media (max-width: 900px) {
@@ -298,19 +131,9 @@ body {
         margin: 0 auto;
     }
 
-    .title-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .title-row h1,
     .text-block h2,
     .right-title h2 {
         min-width: 0;
-        width: 100%;
-    }
-
-    .stripes {
         width: 100%;
     }
 
@@ -329,17 +152,6 @@ body {
 }
 
 @media (max-width: 560px) {
-    .frame-header {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .top-bar {
-        width: 100%;
-        justify-content: center;
-        --top-btn-scale: 1.2;
-    }
-
     .canvas {
         padding: 0.95rem 0.85rem 1rem;
     }
@@ -349,16 +161,7 @@ body {
         font-size: clamp(1.05rem, 5.2vw, 1.25rem);
     }
 
-    .text-block h2,
-    .title-row h1 {
+    .text-block h2 {
         font-size: clamp(1.75rem, 9vw, 2.2rem);
-    }
-
-    .pill-row a {
-        font-size: 1rem;
-    }
-
-    .frame-footer {
-        font-size: 1.4rem;
     }
 }

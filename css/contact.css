@@ -1,101 +1,32 @@
-body {
-    background-color: #111;
-}
+/* Page-specific styles for contact.html. Shared header/top-bar/canvas/
+   pill-row/footer rules live in base.css — this file only covers the
+   contact layout, copy, and form. */
 
-.contact-panel {
-    --content-scale: 0.92;
-    zoom: var(--content-scale);
-}
-
-@supports not (zoom: 1) {
-    .contact-panel {
-        font-size: var(--content-scale);
-    }
-}
-
-.top-bar {
-    --top-btn-scale: 1.5;
-}
-
-.top-bar .btn {
-    font-size: calc(1.15rem * var(--top-btn-scale));
-    font-weight: 600;
-    border-width: 2px;
-    line-height: 1;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.top-bar .btn.btn-sm:not(.rounded-circle) {
-    --bs-btn-padding-y: calc(0.16rem * var(--top-btn-scale));
-}
-
-.top-bar .btn.rounded-circle {
-    width: calc(2rem * var(--top-btn-scale));
-    height: calc(2rem * var(--top-btn-scale));
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.top-bar .btn.contact-square-btn {
-    width: auto;
-    height: calc(2rem * var(--top-btn-scale));
-    font-size: calc(0.85rem * var(--top-btn-scale));
-    padding: 0 calc(0.4rem * var(--top-btn-scale));
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: calc(0.16rem * var(--top-btn-scale));
-}
-
-.top-bar .btn .fa {
-    font-size: calc(1.2rem * var(--top-btn-scale));
-}
-
-.top-bar .btn:hover {
-    background-color: #7c2a2a;
-    color: #fff;
-    border-color: #7c2a2a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-}
-
-.top-bar .btn:focus-visible {
-    outline: 2px solid #7c2a2a;
-    outline-offset: 2px;
-}
-
-.contact-logo {
-    max-width: 280px;
-}
-
-.contact-title {
-    margin-top: 1.2rem;
-    font-size: clamp(2rem, 4vw, 3.4rem);
-    font-weight: 700;
-    color: #2a6f7c;
-    border-bottom: 4px solid #7c2a2a;
-    display: inline-block;
-    padding-bottom: 0.2rem;
+.contact-grid {
+    margin-top: 1.4rem;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 2rem;
+    align-items: start;
 }
 
 .contact-copy {
-    margin-top: 1rem;
-    font-size: clamp(1.05rem, 1.7vw, 1.35rem);
-    line-height: 1.4;
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    line-height: 1.45;
 }
 
 .contact-meta p {
     margin-bottom: 0.45rem;
-    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    color: #cfcfcf;
 }
 
 .contact-form {
     background: #f7f8fa;
     border: 2px solid #d9dce2;
     border-radius: 16px;
-    padding: 1.25rem;
+    padding: 1.4rem;
+    color: #1a1a1a;
 }
 
 .contact-form .form-label {
@@ -120,26 +51,13 @@ body {
     padding: 0.5rem 1.2rem;
 }
 
-.bottom-nav a {
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.bottom-nav a:hover {
-    color: #7c2a2a;
-}
-
-@media (min-width: 768px) {
-    .bottom-nav a {
-        font-size: 1.5rem;
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 575px) {
-    .top-bar {
-        --top-btn-scale: 1.2;
-    }
-
     .contact-form {
         padding: 1rem;
     }
