@@ -7,6 +7,9 @@
     <meta name="description" content="Nicolas Tovar (Niko) — creative developer portfolio: projects, gallery, and contact.">
     <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
 
+    <!-- 🚀 Preload hero image so it downloads instantly -->
+    <link rel="preload" as="image" href="resources/profile.jpg" fetchpriority="high">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -53,7 +56,16 @@
                 </div>
 
                 <div class="hero-portrait">
-                    <img src="resources/profile.jpg" alt="Profile photo of Nicolas Tovar" class="img-fluid rounded-4 shadow">
+                    <!-- 
+                        ✅ No width/height attributes – we use CSS aspect-ratio instead
+                        ✅ fetchpriority="high" + preload = instant
+                        ✅ decoding="async" = non-blocking decode
+                    -->
+                    <img src="resources/profile.jpg" 
+                         alt="Profile photo of Nicolas Tovar" 
+                         class="img-fluid rounded-4 shadow" 
+                         fetchpriority="high" 
+                         decoding="async">
                 </div>
             </div>
 

@@ -102,3 +102,33 @@
         order: -1;
     }
 }
+
+/* ============================================================
+   Hero image – instant loading, no layout shift, smooth fade
+   ============================================================ */
+
+/* 1. Placeholder background that matches the photo's skin-tone
+      so the empty space looks intentional before the image loads */
+.hero-portrait {
+    background-color: #d4c8b0;    /* neutral beige – change to match your photo */
+    border-radius: 1rem;          /* matches rounded-4 */
+    overflow: hidden;             /* keeps corners clean */
+}
+
+/* 2. Reserve exact space using aspect-ratio (no HTML width/height needed) */
+.hero-portrait img {
+    display: block;               /* removes tiny gap below image */
+    width: 100%;                  /* fills container */
+    height: auto;                 /* maintains ratio */
+    aspect-ratio: 800 / 533;      /* ← matches your profile.jpg proportions */
+    object-fit: cover;            /* crops nicely if container is taller/wider */
+    
+    /* 3. Fade in smoothly when the image is ready */
+    opacity: 0;
+    animation: heroFadeIn 0.6s ease-in forwards;
+}
+
+@keyframes heroFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
