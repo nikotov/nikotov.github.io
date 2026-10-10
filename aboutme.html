@@ -2,8 +2,8 @@
 title: About me
 nav_title: About
 description: >-
-  About Nicolás Tovar Cobos (Niko), a developer and photographer in Ecuador who
-  builds fast, clear and visually intentional products.
+  About Nicolás Tovar Cobos (Niko): computer science engineering student at USFQ,
+  teaching assistant and junior software developer in Quito, Ecuador.
 permalink: /about/
 redirect_from: /aboutme.html
 css: aboutme
@@ -27,14 +27,19 @@ signature_font: true
     <div class="about-body">
         <section class="about-section prose" aria-label="Introduction">
             <p class="about-intro">
-                I'm Nicolás Tovar Cobos, or Niko: a developer in {{ site.location }} who cares about
-                design, technology and telling stories through digital products.
+                I'm Nicolás Tovar Cobos, or Niko: a junior software developer and computer science
+                engineering student at Universidad San Francisco de Quito, in {{ site.location }}.
+            </p>
+            <p>
+                My experience spans data analysis, full-stack applications and digital marketing
+                campaigns. I like solving problems, picking up new tools and working in fast-moving
+                environments, and I'm most interested in software development, data analysis and
+                computer systems.
             </p>
             <p>
                 I like building projects that feel fast, clear and visually intentional, from the
-                first wireframe to the final deployment. My approach combines creativity with
-                structure: understand the user, plan the experience, then write maintainable code
-                that can grow over time.
+                first wireframe to the final deployment: understand the user, plan the experience,
+                then write maintainable code that can grow over time.
             </p>
             <p>
                 Photography keeps that eye sharp. Composition, light and color matter just as much
@@ -64,21 +69,19 @@ signature_font: true
         <section class="about-section" aria-labelledby="education-title">
             <h2 id="education-title">Education</h2>
             <p class="prose">
-                I've focused my education on software development, web technologies and practical
-                project execution. Along the way I've built strong foundations in frontend
-                architecture, responsive design, version control and collaborative workflows, and I
-                keep learning through hands-on projects, documentation and experimenting with new tools.
+                I'm studying Computer Science Engineering at USFQ, with strong foundations in data
+                structures, algorithms and software architecture, and I keep learning through
+                hands-on projects and new tools.
             </p>
             {% include timeline.html entries=site.data.timeline.education %}
         </section>
 
-        <section class="about-section" aria-labelledby="path-title">
-            <h2 id="path-title">Path</h2>
+        <section class="about-section" aria-labelledby="experience-title">
+            <h2 id="experience-title">Experience</h2>
             <p class="prose">
-                It started with curiosity about how websites work and grew into a commitment to
-                building meaningful digital experiences. Each project has sharpened my technical
-                skills, communication and attention to detail. Today I'm focused on growing as a
-                full-stack developer while building work that is useful, elegant and impactful.
+                Alongside my studies I've taught, worked in sales and marketing, and shipped my own
+                projects, like the Hack2Interact-winning <a href="{{ '/projects/#otter' | relative_url }}">Get Otter Here!</a>
+                and <a href="{{ '/projects/#clean-crm' | relative_url }}">Clean CRM</a>.
             </p>
             {% include timeline.html entries=site.data.timeline.path %}
         </section>

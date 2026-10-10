@@ -3,10 +3,10 @@
 # integrations used across the layout, includes and SEO tags.
 
 title: Nicolás Tovar
-tagline: Developer & Photographer in Ecuador
+tagline: Software Developer & Photographer in Quito
 description: >-
-  Nicolás Tovar (Niko), developer and photographer in Ecuador: a Hack2Interact game jam
-  winner, open-source tools, and portrait and wildlife photography.
+  Nicolás Tovar (Niko), software developer, USFQ computer science student and photographer
+  in Quito, Ecuador: game jam winner, open-source tools and photography.
 url: https://nikotov.dev
 baseurl: ""
 lang: en_US
@@ -16,7 +16,13 @@ theme: null
 author:
   name: Nicolás Tovar
   url: https://nikotov.dev
-  job_title: Developer & Photographer
+  job_title: Junior Software Developer
+  # Where Niko studies; used in the Person structured data (alumniOf).
+  university:
+    name: Universidad San Francisco de Quito
+    url: https://www.usfq.edu.ec
+  # BCP 47 codes for the languages Niko speaks (knowsLanguage).
+  languages: [es, en]
   # Other spellings people search for; used in the Person structured data.
   alternate_names:
     - Niko
@@ -24,16 +30,21 @@ author:
     - Nicolás Tovar Cobos
     - nikotov
   knows_about:
+    - Software development
     - Web development
+    - Data analysis
     - Game development
-    - Godot
     - Python
+    - Java
+    - FastAPI
     - PostgreSQL
+    - Docker
+    - Godot
     - Photography
 
 # Profiles. jekyll-seo-tag also uses social.links for the sameAs list.
 email: nicolastovar18@hotmail.com
-location: Ecuador
+location: Quito, Ecuador
 availability: Open to freelance and full-time opportunities
 github_url: https://github.com/nikotov
 linkedin_url: https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303

@@ -1,7 +1,13 @@
-# Skills shown on the About page, grouped. Edit freely.
+# Skills shown on the About page, grouped. Keep in sync with the CV.
 - group: Languages
-  items: [Python, GDScript, JavaScript, HTML & CSS, SQL]
-- group: Frameworks & tools
-  items: [Godot, Jinja2, PostgreSQL, Alembic, Git & GitHub]
+  items: [Python, Java, SQL, JavaScript, HTML & CSS, GDScript]
+- group: Backend & data
+  items: [FastAPI, REST APIs, PostgreSQL, SQLAlchemy, Alembic, Jinja2]
+- group: DevOps & tools
+  items: [Docker, Git, GitHub Actions, Godot]
+- group: Practices
+  items: [Agile & Scrum, Clean Architecture, Hexagonal Architecture, Data structures & algorithms, Debugging]
 - group: Photography
   items: [Studio portraits, Wildlife, Real estate, Editing]
+- group: Spoken languages
+  items: [Spanish, English (C1 Advanced)]

@@ -16,7 +16,9 @@
   "image": {{ '/resources/img/niko-portrait-camera-1200.webp' | absolute_url | jsonify }},
   "jobTitle": {{ site.author.job_title | jsonify }},
   "email": {{ 'mailto:' | append: site.email | jsonify }},
-  "address": { "@type": "PostalAddress", "addressCountry": "EC" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Quito", "addressCountry": "EC" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": {{ site.author.university.name | jsonify }}, "url": {{ site.author.university.url | jsonify }} },
+  "knowsLanguage": {{ site.author.languages | jsonify }},
   "knowsAbout": {{ site.author.knows_about | jsonify }},
   "sameAs": {{ site.social.links | jsonify }}
 }
