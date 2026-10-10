@@ -21,7 +21,7 @@
   "sameAs": {{ site.social.links | jsonify }}
 }
 </script>
-{%- else %}
+{%- elsif page.noindex != true %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

@@ -5,8 +5,8 @@
 title: Nicolás Tovar
 tagline: Developer & Photographer in Ecuador
 description: >-
-  Nicolás Tovar (Niko) is a developer and photographer in Ecuador: a Hack2Interact
-  game jam winner, open-source tools, and portrait, wildlife and real estate photography.
+  Nicolás Tovar (Niko), developer and photographer in Ecuador: a Hack2Interact game jam
+  winner, open-source tools, and portrait and wildlife photography.
 url: https://nikotov.dev
 baseurl: ""
 lang: en_US
@@ -69,7 +69,7 @@ defaults:
       path: ""
     values:
       layout: default
-      image: /resources/og-image.png
+      image: /resources/og-image.jpg
 
 plugins:
   - jekyll-seo-tag
