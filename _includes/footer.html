@@ -1,0 +1,15 @@
+<footer class="site-footer">
+    <div class="container site-footer__inner">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} · {% include location.html %}</p>
+
+        <nav class="footer-nav" aria-label="Footer">
+            <ul role="list">
+                {%- for item in site.data.nav %}
+                <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+                {%- endfor %}
+            </ul>
+        </nav>
+
+        {% include social-links.html %}
+    </div>
+</footer>

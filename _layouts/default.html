@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    {%- if page.noindex %}
+    <meta name="robots" content="noindex">
+    {%- endif %}
+    <meta name="theme-color" content="#0a0b0d">
+    <link rel="icon" href="{{ '/resources/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ '/resources/apple-touch-icon.png' | relative_url }}">
+    {%- if page.preload_image %}
+    <link rel="preload" as="image" imagesrcset="{% include srcset.html file=page.preload_image.file widths=page.preload_image.widths %}" imagesizes="{{ page.preload_image.sizes }}" fetchpriority="high">
+    {%- endif %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    {%- if page.signature_font %}
+    {%- comment %} Caveat is only used for the "Niko" signature, so download just those letters. {% endcomment %}
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&text=Niko&display=swap" rel="stylesheet">
+    {%- endif %}
+
+    <link rel="stylesheet" href="{{ '/css/base.css' | relative_url }}">
+    {%- if page.css %}
+    <link rel="stylesheet" href="{{ '/css/' | append: page.css | append: '.css' | relative_url }}">
+    {%- endif %}
+    {% include schema.html %}
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    {% include header.html %}
+
+    <main id="main" tabindex="-1">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+    {%- for script in page.scripts %}
+    <script src="{{ script | relative_url }}" defer></script>
+    {%- endfor %}
+</body>
+</html>

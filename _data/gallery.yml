@@ -1,0 +1,55 @@
+# Gallery photos, in display order. Files live in resources/img/ as
+# <file>-800.webp (grid) and <file>-1600.webp (lightbox); w/h and lw/lh are
+# their real pixel sizes, as printed by scripts/optimize-images.sh.
+# `home: true` puts the photo in the home page's gallery strip.
+- file: wildlife-owl-autumn-leaves
+  category: Wildlife
+  title: Owl in autumn leaves
+  alt: A horned owl with orange eyes staring at the camera in front of red and pink autumn leaves
+  w: 800
+  h: 534
+  lw: 1600
+  lh: 1068
+  home: true
+- file: studio-portrait-suit-wine
+  category: Studio
+  title: A toast
+  alt: Studio portrait of a person in a black suit and striped tie raising a glass of red wine against a dark backdrop
+  w: 640
+  h: 800
+  lw: 1280
+  lh: 1600
+- file: portrait-dark-curly-hair
+  category: Portraits
+  title: Garden portrait
+  alt: Close-up portrait of a smiling person with long dark curly hair against blurred greenery
+  w: 800
+  h: 640
+  lw: 1600
+  lh: 1280
+  home: true
+- file: snapshot-red-telephone
+  category: Snapshot
+  title: The red telephone
+  alt: A red wall telephone shaped like a British phone box, mounted beside a white archway
+  w: 665
+  h: 800
+  lw: 1330
+  lh: 1600
+  home: true
+- file: experimental-macro-capsules
+  category: Experimental
+  title: Capsules
+  alt: Macro shot of a green capsule, a pink capsule and two yellow tablets on a pale blue surface
+  w: 800
+  h: 800
+  lw: 1600
+  lh: 1600
+- file: real-estate-art-courtyard
+  category: Real Estate
+  title: Art courtyard
+  alt: Interior courtyard with salmon walls covered in paintings, wooden balconies and a glass roof
+  w: 800
+  h: 530
+  lw: 1600
+  lh: 1059

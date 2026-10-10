@@ -1,0 +1,9 @@
+# Main navigation, used by the header and footer.
+- title: About
+  url: /about/
+- title: Projects
+  url: /projects/
+- title: Gallery
+  url: /gallery/
+- title: Contact
+  url: /contact/

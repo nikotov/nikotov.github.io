@@ -1,0 +1,28 @@
+# Education and career milestones for the About page timeline, newest first.
+# Each list is shown only when it has entries.
+education:
+  - year: 2023 – present
+    title: Computer Science Engineering
+    place: Universidad San Francisco de Quito (USFQ)
+    text: Ingeniería en Ciencias de la Computación.
+  - year: "2023"
+    title: C1 Advanced (CAE)
+    place: Cambridge University Press & Assessment
+  - year: "2023"
+    title: Professional Barista Certification
+    place: Universidad Hemisferios
+path:
+  - year: Jan 2026 – present
+    title: Teaching Assistant
+    place: Universidad San Francisco de Quito
+    text: >-
+      I help teach mathematics and engineering courses, focusing on problem solving and
+      logical thinking, review and give feedback on students' work, and help them build
+      their analytical and programming skills.
+  - year: Dec 2023 – Aug 2024
+    title: Sales & Marketing Intern
+    place: Grupo Mancheno
+    text: >-
+      Ran multichannel campaigns over SMS, WhatsApp and phone calls, analyzed customer
+      retention data to refine commercial strategy, and helped manage and segment
+      customer databases.

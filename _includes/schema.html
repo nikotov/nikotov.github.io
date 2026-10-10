@@ -1,0 +1,98 @@
+{%- comment -%}
+  JSON-LD structured data, on top of the WebSite/WebPage block jekyll-seo-tag
+  already prints. Built from _config.yml and _data/ so it matches what the
+  pages show.
+{%- endcomment -%}
+{%- assign person_id = '/#person' | absolute_url -%}
+{%- if page.url == '/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": {{ person_id | jsonify }},
+  "name": {{ site.author.name | jsonify }},
+  "alternateName": {{ site.author.alternate_names | jsonify }},
+  "url": {{ '/' | absolute_url | jsonify }},
+  "image": {{ '/resources/img/niko-portrait-camera-1200.webp' | absolute_url | jsonify }},
+  "jobTitle": {{ site.author.job_title | jsonify }},
+  "email": {{ 'mailto:' | append: site.email | jsonify }},
+  "address": { "@type": "PostalAddress", "addressLocality": {{ site.address.locality | jsonify }}, "addressCountry": {{ site.address.country_code | jsonify }} },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": {{ site.author.university.name | jsonify }}, "url": {{ site.author.university.url | jsonify }} },
+  "knowsLanguage": {{ site.author.languages | jsonify }},
+  "knowsAbout": {{ site.author.knows_about | jsonify }},
+  "sameAs": {{ site.social.links | jsonify }}
+}
+</script>
+{%- elsif page.noindex != true %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": {{ '/' | absolute_url | jsonify }} },
+    { "@type": "ListItem", "position": 2, "name": {{ page.nav_title | default: page.title | jsonify }}, "item": {{ page.url | absolute_url | jsonify }} }
+  ]
+}
+</script>
+{%- endif %}
+{%- if page.schema == 'projects' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {%- for project in site.data.projects %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "item": {
+        "@type": {{ project.schema_type | jsonify }},
+        "name": {{ project.title | jsonify }},
+        "description": {{ project.tagline | jsonify }},
+        "url": {{ '/projects/#' | append: project.id | absolute_url | jsonify }},
+        "image": {{ '/resources/img/' | append: project.image | append: '-1600.webp' | absolute_url | jsonify }},
+        "author": { "@id": {{ person_id | jsonify }} },
+        "keywords": {{ project.tech | join: ', ' | jsonify }}
+        {%- if project.schema_type == 'VideoGame' %},
+        "genre": "Arcade",
+        "award": {{ project.award | jsonify }},
+        "gamePlatform": "Web browser"
+        {%- if site.itch.url %},
+        "sameAs": {{ site.itch.url | jsonify }}
+        {%- endif %}
+        {%- endif %}
+        {%- if project.schema_type == 'SoftwareSourceCode' %},
+        "codeRepository": {{ project.repo | jsonify }},
+        "programmingLanguage": {{ project.tech | first | jsonify }}
+        {%- endif %}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif %}
+{%- if page.schema == 'gallery' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": {{ page.title | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "author": { "@id": {{ person_id | jsonify }} },
+  "image": [
+    {%- for photo in site.data.gallery %}
+    {
+      "@type": "ImageObject",
+      "contentUrl": {{ '/resources/img/' | append: photo.file | append: '-1600.webp' | absolute_url | jsonify }},
+      "name": {{ photo.title | jsonify }},
+      "caption": {{ photo.alt | jsonify }},
+      "creator": { "@type": "Person", "name": {{ site.author.name | jsonify }} },
+      "creditText": {{ site.author.name | jsonify }},
+      "copyrightNotice": {{ '© ' | append: site.author.name | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif %}

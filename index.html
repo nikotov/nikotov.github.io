@@ -1,89 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Niko's Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Nicolas Tovar (Niko) — creative developer portfolio: projects, gallery, and contact.">
-    <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
+---
+# Title and description come from site.title/tagline/description in _config.yml.
+css: home
+# The hero portrait, also preloaded by the layout. The portrait column is
+# ~440px wide at most, so desktops at 1x pick the 640w file.
+preload_image:
+  file: niko-portrait-camera
+  widths: "640,1200"
+  sizes: "(max-width: 860px) min(420px, 100vw), min(40vw, 460px)"
+---
+<section class="hero">
+    <div class="container hero__grid">
+        <div class="hero__copy">
+            <p class="eyebrow">Hi, I'm Niko</p>
+            <h1>{{ site.author.name }}</h1>
+            <p class="hero__role">Software developer &amp; photographer · {% include location.html %}<span class="cursor" aria-hidden="true">_</span></p>
 
-    <!-- 🚀 Preload hero image so it downloads instantly -->
-    <link rel="preload" as="image" href="resources/profile.jpg" fetchpriority="high">
+            <p class="hero__lede">
+                I'm a computer science engineering student at {{ site.author.university.name }}
+                who builds modern, user-friendly software, from a one-button game that won the
+                Hack2Interact jam to an open-source CRM for WhatsApp campaigns. When I'm not
+                writing code, I'm usually behind a camera.
+            </p>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <main class="site-frame">
-        <header class="frame-header frame-header--dark">
-            <a href="index.html" class="logo-link" aria-label="Niko's homepage">
-                <img src="resources/logo.svg" alt="Niko logo" class="logo-mark">
+            <div class="btn-row hero__actions">
+                <a class="btn btn--primary" href="{{ '/projects/' | relative_url }}">See my projects {% include icon.html name="arrow-right" %}</a>
+                <a class="btn btn--ghost" href="{{ '/contact/' | relative_url }}">Get in touch</a>
+            </div>
+        </div>
+
+        <div class="hero__portrait">
+            <img src="{{ '/resources/img/' | append: page.preload_image.file | append: '-640.webp' | relative_url }}"
+                 srcset="{% include srcset.html file=page.preload_image.file widths=page.preload_image.widths %}"
+                 sizes="{{ page.preload_image.sizes }}"
+                 width="1200" height="1200"
+                 alt="{{ site.author.name | escape }} holding a Nikon camera in warm, low light"
+                 fetchpriority="high">
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="featured-title">
+    <div class="container">
+        <div class="section-head">
+            <h2 id="featured-title">Featured work</h2>
+            <a class="text-link" href="{{ '/projects/' | relative_url }}">All projects {% include icon.html name="arrow-right" %}</a>
+        </div>
+
+        <div class="work-grid">
+            {%- for project in site.data.projects %}
+            <a class="work-card card spot-{{ project.accent }}" href="{{ '/projects/' | relative_url }}#{{ project.id }}">
+                <img src="{{ '/resources/img/' | append: project.image | append: '-800.webp' | relative_url }}"
+                     width="800" height="450" alt="{{ project.image_alt | escape }}" loading="lazy">
+                <div class="work-card__body">
+                    <p class="eyebrow">{{ project.eyebrow }}</p>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.tagline }}</p>
+                    <span class="work-card__more">Read about {{ project.title }} {% include icon.html name="arrow-right" %}</span>
+                </div>
             </a>
+            {%- endfor %}
+        </div>
+    </div>
+</section>
 
-            <nav class="top-bar" aria-label="Profile links">
-                <a href="https://github.com/nikotov" class="btn btn-outline-light btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-light btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-light btn-sm rounded-4 contact-square-btn" aria-label="Contact page">
-                    <i class="fa fa-envelope"></i> Contact
-                </a>
-            </nav>
-        </header>
+<section class="section" aria-labelledby="gallery-title">
+    <div class="container">
+        <div class="section-head">
+            <h2 id="gallery-title">Through the lens</h2>
+            <a class="text-link" href="{{ '/gallery/' | relative_url }}">Open the gallery {% include icon.html name="arrow-right" %}</a>
+        </div>
 
-        <section class="canvas hero-canvas" aria-label="Homepage introduction">
-            <div class="hero-grid">
-                <div class="hero-copy">
-                    <img src="resources/logo.svg" alt="Niko logo" class="hero-logo">
-
-                    <div class="hero-headline">
-                        <h2 class="text-info">Innovate</h2>
-                        <h2>Build</h2>
-                        <h2 class="text-danger">Create_</h2>
-                    </div>
-
-                    <p class="hero-lede">
-                        I am a creative developer focused on building modern, user-friendly digital experiences.
-                        I enjoy turning ideas into clean interfaces and reliable code that solve real problems.
-                    </p>
-                </div>
-
-                <div class="hero-portrait">
-                    <!-- 
-                        ✅ No width/height attributes – we use CSS aspect-ratio instead
-                        ✅ fetchpriority="high" + preload = instant
-                        ✅ decoding="async" = non-blocking decode
-                    -->
-                    <img src="resources/profile.jpg" 
-                         alt="Profile photo of Nicolas Tovar" 
-                         class="img-fluid rounded-4 shadow" 
-                         fetchpriority="high" 
-                         decoding="async">
-                </div>
-            </div>
-
-            <div class="pill-row" aria-label="Page navigation">
-                <span class="stripes" aria-hidden="true"></span>
-                <a href="aboutme.html">About me</a>
-                <a href="projects.html">Projects</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-                <span class="stripes" aria-hidden="true"></span>
-            </div>
-        </section>
-
-        <footer class="frame-footer">
-            <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
-        </footer>
-    </main>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        <div class="photo-strip">
+            {%- assign home_photos = site.data.gallery | where: "home", true %}
+            {%- for photo in home_photos %}
+            <a href="{{ '/gallery/' | relative_url }}" class="photo-strip__item">
+                <img src="{{ '/resources/img/' | append: photo.file | append: '-800.webp' | relative_url }}"
+                     width="{{ photo.w }}" height="{{ photo.h }}" alt="{{ photo.alt | escape }}" loading="lazy">
+                <span class="photo-strip__label">{{ photo.category }}</span>
+            </a>
+            {%- endfor %}
+        </div>
+    </div>
+</section>

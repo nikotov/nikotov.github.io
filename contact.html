@@ -1,120 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact | Niko</title>
-    <meta name="description" content="Get in touch with Nicolas Tovar for freelance or full-time opportunities.">
-    <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/contact.css">
-</head>
-<body>
-    <main class="site-frame">
-        <header class="frame-header">
-            <a href="index.html" class="logo-link" aria-label="Niko's homepage">
-                <img src="resources/logo.svg" alt="Niko logo" class="logo-mark">
-            </a>
+---
+title: Contact
+description: >-
+  Get in touch with Nicolás Tovar (Niko), a developer and photographer in Ecuador,
+  about freelance projects, full-time roles or photography work.
+permalink: /contact/
+redirect_from: /contact.html
+css: contact
+scripts:
+  - /js/contact.js
+---
+<section class="page-head container">
+    <div class="page-title">
+        <h1>Let's connect</h1>
+        <span class="stripes" aria-hidden="true"></span>
+    </div>
+</section>
 
-            <nav class="top-bar" aria-label="Profile links">
-                <a href="https://github.com/nikotov" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-dark btn-sm rounded-4 contact-square-btn" aria-label="Send email">
-                    <i class="fa fa-envelope"></i> Contact
-                </a>
-            </nav>
-        </header>
+<div class="container contact-grid">
+    <div class="contact-info">
+        <p class="contact-copy">
+            Have a project in mind, a collaboration idea, or just want to say hello?
+            Send me a message and I'll get back to you as soon as I can.
+        </p>
 
-        <section class="canvas" aria-label="Contact page content">
-            <div class="title-row">
-                <h1>Let's Connect</h1>
-                <span class="stripes" aria-hidden="true"></span>
+        <ul class="contact-list" role="list">
+            <li>
+                {% include icon.html name="mail" %}
+                <div><span class="contact-list__label">Email</span><a href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+            </li>
+            <li>
+                {% include icon.html name="linkedin" %}
+                <div><span class="contact-list__label">LinkedIn</span><a href="{{ site.linkedin_url }}" target="_blank" rel="noopener me">{{ site.author.name }}</a></div>
+            </li>
+            <li>
+                {% include icon.html name="github" %}
+                <div><span class="contact-list__label">GitHub</span><a href="{{ site.github_url }}" target="_blank" rel="noopener me">@nikotov</a></div>
+            </li>
+            <li>
+                {% include icon.html name="map-pin" %}
+                <div><span class="contact-list__label">Location</span>{% include location.html %}</div>
+            </li>
+            <li>
+                {% include icon.html name="briefcase" %}
+                <div><span class="contact-list__label">Availability</span>{{ site.availability }}</div>
+            </li>
+        </ul>
+    </div>
+
+    {%- comment %}
+      With a formspree_id in _config.yml the form posts to Formspree and
+      js/contact.js shows the result inline. Without one, it falls back to
+      opening the visitor's email app with the message filled in.
+    {% endcomment %}
+    <form class="contact-form card" id="contact-form" method="post"
+          {%- if site.formspree_id %}
+          action="https://formspree.io/f/{{ site.formspree_id }}" data-formspree
+          {%- else %}
+          action="mailto:{{ site.email }}" enctype="text/plain"
+          {%- endif %}
+          data-email="{{ site.email }}">
+        <div class="field-row">
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
             </div>
-
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <p class="contact-copy">
-                        Have a project in mind, a collaboration idea, or just want to say hello?
-                        Send me a message and I will get back to you as soon as possible.
-                    </p>
-
-                    <div class="contact-meta">
-                        <p><strong>Email:</strong> nicolastovar18@hotmail.com</p>
-                        <p><strong>Location:</strong> Ecuador</p>
-                        <p><strong>Availability:</strong> Open for freelance and full-time opportunities</p>
-                    </div>
-                </div>
-
-                <!--
-                  NOTE: This is a static site (GitHub Pages), so a <form action="#"> can't
-                  actually send anything. Point this at a form backend such as Formspree
-                  (https://formspree.io) or Netlify Forms, e.g.:
-                    <form action="https://formspree.io/f/your-form-id" method="POST">
-                  Until that's set up, this mailto fallback opens the user's email client
-                  pre-filled with whatever they've written.
-                -->
-                <form class="contact-form" action="#" method="post" id="contact-form">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" id="subject" name="subject" required>
-                        </div>
-                        <div class="col-12">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
-                        </div>
-                        <div class="col-12 text-end">
-                            <button type="submit" class="btn btn-dark submit-btn">Send Message</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
             </div>
+        </div>
+        <div class="field">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+        </div>
+        <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
 
-            <div class="pill-row" aria-label="Page navigation">
-                <span class="stripes" aria-hidden="true"></span>
-                <a href="aboutme.html">About me</a>
-                <a href="projects.html">Projects</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="#">Contact</a>
-                <span class="stripes" aria-hidden="true"></span>
-            </div>
-        </section>
+        <!-- Spam trap: hidden from people, filled in by bots -->
+        <div class="visually-hidden" aria-hidden="true">
+            <label for="website">Leave this empty</label>
+            <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
 
-        <footer class="frame-footer">
-            <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
-        </footer>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Temporary client-side fallback until a real form backend (Formspree/Netlify)
-        // is wired up to the action attribute above.
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            const email = document.getElementById('email').value;
-            const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-            window.location.href = `mailto:nicolastovar18@hotmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-        });
-    </script>
-</body>
-</html>
+        <div class="form-footer">
+            <p class="form-status" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn--primary">Send message {% include icon.html name="arrow-right" %}</button>
+        </div>
+    </form>
+</div>
