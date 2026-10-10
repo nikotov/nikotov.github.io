@@ -11,7 +11,7 @@
     <link rel="icon" href="{{ '/resources/favicon.svg' | relative_url }}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ '/resources/apple-touch-icon.png' | relative_url }}">
     {%- if page.preload_image %}
-    <link rel="preload" as="image" href="{{ page.preload_image.src | relative_url }}" imagesrcset="{{ page.preload_image.srcset }}" imagesizes="{{ page.preload_image.sizes }}" fetchpriority="high">
+    <link rel="preload" as="image" imagesrcset="{% include srcset.html file=page.preload_image.file widths=page.preload_image.widths %}" imagesizes="{{ page.preload_image.sizes }}" fetchpriority="high">
     {%- endif %}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

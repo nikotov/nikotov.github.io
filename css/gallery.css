@@ -74,8 +74,9 @@
 /* ---------- lightbox ---------- */
 
 .lightbox {
-    width: 100vw;
-    height: 100dvh;
+    inset: 0;
+    width: auto;
+    height: auto;
     max-width: none;
     max-height: none;
     margin: 0;

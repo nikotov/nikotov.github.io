@@ -16,10 +16,13 @@ theme: null
 author:
   name: Nicolás Tovar
   url: https://nikotov.dev
+  # Full name as written on the CV and LinkedIn.
+  full_name: Nicolás Tovar Cobos
   job_title: Junior Software Developer
   # Where Niko studies; used in the Person structured data (alumniOf).
   university:
     name: Universidad San Francisco de Quito
+    short_name: USFQ
     url: https://www.usfq.edu.ec
   # BCP 47 codes for the languages Niko speaks (knowsLanguage).
   languages: [es, en]
@@ -44,7 +47,11 @@ author:
 
 # Profiles. jekyll-seo-tag also uses social.links for the sameAs list.
 email: nicolastovar18@hotmail.com
-location: Quito, Ecuador
+# Shown as "<locality>, <country>" and used in the Person JSON-LD.
+address:
+  locality: Quito
+  country: Ecuador
+  country_code: EC
 availability: Open to freelance and full-time opportunities
 github_url: https://github.com/nikotov
 linkedin_url: https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303

@@ -30,10 +30,10 @@ scripts:
         <figure class="masonry__item">
             <a href="{{ '/resources/img/' | append: photo.file | append: '-1600.webp' | relative_url }}"
                data-lightbox data-width="{{ photo.lw }}" data-height="{{ photo.lh }}"
-               data-caption="{{ photo.category }} · {{ photo.title }}">
+               data-caption="{{ photo.category | escape }} · {{ photo.title | escape }}">
                 <img src="{{ '/resources/img/' | append: photo.file | append: '-800.webp' | relative_url }}"
                      width="{{ photo.w }}" height="{{ photo.h }}"
-                     alt="{{ photo.alt }}" loading="lazy">
+                     alt="{{ photo.alt | escape }}" loading="lazy">
             </a>
             <figcaption>
                 <span class="masonry__category">{{ photo.category }}</span>

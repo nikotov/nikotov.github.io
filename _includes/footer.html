@@ -1,6 +1,6 @@
 <footer class="site-footer">
     <div class="container site-footer__inner">
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} · {{ site.location }}</p>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} · {% include location.html %}</p>
 
         <nav class="footer-nav" aria-label="Footer">
             <ul role="list">

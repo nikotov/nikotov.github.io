@@ -1,0 +1,11 @@
+{%- comment -%}
+  srcset candidates for an image's WebP versions in resources/img/:
+    {% include srcset.html file="clean-crm-campaigns" widths="800,1600" %}
+  → /resources/img/clean-crm-campaigns-800.webp 800w, /resources/img/clean-crm-campaigns-1600.webp 1600w
+  Files are named by their long edge, so this only fits landscape or square
+  images, where the long edge is the width.
+{%- endcomment -%}
+{%- assign widths = include.widths | split: "," -%}
+{%- for width in widths -%}
+{{ '/resources/img/' | append: include.file | append: '-' | append: width | append: '.webp' | relative_url }} {{ width }}w{% unless forloop.last %}, {% endunless %}
+{%- endfor -%}

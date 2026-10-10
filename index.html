@@ -1,22 +1,22 @@
 ---
-description: >-
-  Nicolás Tovar (Niko), software developer, USFQ computer science student and photographer
-  in Quito, Ecuador: game jam winner, open-source tools and photography.
+# Title and description come from site.title/tagline/description in _config.yml.
 css: home
+# The hero portrait, also preloaded by the layout. The portrait column is
+# ~440px wide at most, so desktops at 1x pick the 640w file.
 preload_image:
-  src: /resources/img/niko-portrait-camera-640.webp
-  srcset: /resources/img/niko-portrait-camera-640.webp 640w, /resources/img/niko-portrait-camera-1200.webp 1200w
-  sizes: "(max-width: 860px) min(420px, 100vw), 40vw"
+  file: niko-portrait-camera
+  widths: "640,1200"
+  sizes: "(max-width: 860px) min(420px, 100vw), min(40vw, 460px)"
 ---
 <section class="hero">
     <div class="container hero__grid">
         <div class="hero__copy">
             <p class="eyebrow">Hi, I'm Niko</p>
             <h1>{{ site.author.name }}</h1>
-            <p class="hero__role">Software developer &amp; photographer · {{ site.location }}<span class="cursor" aria-hidden="true">_</span></p>
+            <p class="hero__role">Software developer &amp; photographer · {% include location.html %}<span class="cursor" aria-hidden="true">_</span></p>
 
             <p class="hero__lede">
-                I'm a computer science engineering student at Universidad San Francisco de Quito
+                I'm a computer science engineering student at {{ site.author.university.name }}
                 who builds modern, user-friendly software, from a one-button game that won the
                 Hack2Interact jam to an open-source CRM for WhatsApp campaigns. When I'm not
                 writing code, I'm usually behind a camera.
@@ -29,11 +29,11 @@ preload_image:
         </div>
 
         <div class="hero__portrait">
-            <img src="{{ page.preload_image.src | relative_url }}"
-                 srcset="{{ page.preload_image.srcset }}"
+            <img src="{{ '/resources/img/' | append: page.preload_image.file | append: '-640.webp' | relative_url }}"
+                 srcset="{% include srcset.html file=page.preload_image.file widths=page.preload_image.widths %}"
                  sizes="{{ page.preload_image.sizes }}"
                  width="1200" height="1200"
-                 alt="{{ site.author.name }} holding a Nikon camera in warm, low light"
+                 alt="{{ site.author.name | escape }} holding a Nikon camera in warm, low light"
                  fetchpriority="high">
         </div>
     </div>
@@ -50,7 +50,7 @@ preload_image:
             {%- for project in site.data.projects %}
             <a class="work-card card spot-{{ project.accent }}" href="{{ '/projects/' | relative_url }}#{{ project.id }}">
                 <img src="{{ '/resources/img/' | append: project.image | append: '-800.webp' | relative_url }}"
-                     width="800" height="450" alt="{{ project.image_alt }}" loading="lazy">
+                     width="800" height="450" alt="{{ project.image_alt | escape }}" loading="lazy">
                 <div class="work-card__body">
                     <p class="eyebrow">{{ project.eyebrow }}</p>
                     <h3>{{ project.title }}</h3>
@@ -75,7 +75,7 @@ preload_image:
             {%- for photo in home_photos %}
             <a href="{{ '/gallery/' | relative_url }}" class="photo-strip__item">
                 <img src="{{ '/resources/img/' | append: photo.file | append: '-800.webp' | relative_url }}"
-                     width="{{ photo.w }}" height="{{ photo.h }}" alt="{{ photo.alt }}" loading="lazy">
+                     width="{{ photo.w }}" height="{{ photo.h }}" alt="{{ photo.alt | escape }}" loading="lazy">
                 <span class="photo-strip__label">{{ photo.category }}</span>
             </a>
             {%- endfor %}

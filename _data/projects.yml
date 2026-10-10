@@ -1,23 +1,67 @@
-# Featured projects. Used by the home page cards and the Projects structured
-# data; the full write-ups live in projects.html. `image` is the base name of a
-# 16:9 screenshot in resources/img/ (with -800 and -1600 versions).
+# Featured projects: the single source for the Projects page spotlights
+# (_includes/project-spotlight.html), the home page cards and the Projects
+# JSON-LD.
+#
+#   image:        base name of a 16:9 screenshot in resources/img/ with -800
+#                 and -1600 versions; shown large and used on the home card.
+#   second_image: smaller overlapping shot. `large` (optional) makes it a
+#                 link to a bigger version.
+#   body:         Markdown paragraphs under the tagline.
+#   diagram:      "controls" (aim/act) or "flow" (the `flow` steps, read out
+#                 to screen readers after `flow_label`).
+#   flip:         put the screenshots on the right on wide screens.
+#   itch:         show the itch.io button/embed configured in _config.yml.
 - id: otter
   title: Get Otter Here!
   eyebrow: Hack2Interact Game Jam · Winner
   tagline: A game where the entire control scheme is a mouse and one button.
+  body: |-
+    Every mechanic (movement, timing, decisions) had to be expressed through a single
+    click and where you point the cursor. I directed the team through that constraint,
+    keeping the design honest to "one button" while making sure it never felt thin.
+    My own work was split between optimization, keeping the game smooth on modest
+    hardware under a tight jam deadline, and the visual polish that gives each level
+    its personality.
+
+    It placed first at Hack2Interact, judged on how fully a team could build a complete,
+    polished experience around one restriction.
+  tech: [Godot, GDScript, One-button design]
+  accent: game
   image: get-otter-here-title-screen
   image_alt: Get Otter Here! title screen with pixel-art otters and the Play, How to play and Quit menu
-  accent: game
+  second_image:
+    file: get-otter-here-logo-486.webp
+    w: 486
+    h: 375
+    alt: Get Otter Here! logo in pink and purple pixel lettering
+  diagram: controls
+  itch: true
   schema_type: VideoGame
   award: First place, Hack2Interact Game Jam
-  tech: [Godot, GDScript]
+
 - id: clean-crm
   title: Clean CRM
-  eyebrow: Open source
+  eyebrow: Open source · GitHub
   tagline: A lightweight CRM built to run WhatsApp campaigns without the bloat.
-  image: clean-crm-campaigns
-  image_alt: Clean CRM campaigns screen for planning and sending WhatsApp campaigns
-  accent: crm
-  schema_type: SoftwareSourceCode
-  repo: https://github.com/nikotov/clean_crm
+  body: |-
+    Clean CRM connects to the YCloud API so a team can plan, send and track WhatsApp
+    campaigns from one clean interface instead of juggling spreadsheets and a separate
+    messaging dashboard. The goal was to keep the whole stack simple enough that anyone
+    could read the codebase in an afternoon: server-rendered templates, a straightforward
+    relational schema, and migrations that actually document what changed and why.
   tech: [Python, Jinja2, PostgreSQL, Alembic, YCloud API]
+  accent: crm
+  image: clean-crm-campaigns
+  image_alt: Clean CRM campaigns screen with template counts and a form to create a draft WhatsApp campaign
+  second_image:
+    file: clean-crm-sign-in-800.webp
+    large: clean-crm-sign-in-1600.webp
+    w: 800
+    h: 450
+    alt: Clean CRM sign-in screen for the admin workspace
+  diagram: flow
+  flow: [Contact list, Campaign, YCloud API, WhatsApp]
+  flow_label: Campaign flow
+  flip: true
+  repo: https://github.com/nikotov/clean_crm
+  schema_type: SoftwareSourceCode

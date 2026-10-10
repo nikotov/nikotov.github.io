@@ -1,0 +1,113 @@
+{%- comment -%}
+  One project spotlight on the Projects page, built from an entry in
+  _data/projects.yml: {% include project-spotlight.html project=project %}
+{%- endcomment -%}
+{%- assign p = include.project -%}
+{%- capture media %}
+        <div class="spotlight__media">
+            <div class="shot-duo">
+                <a class="shot shot--main" href="{{ '/resources/img/' | append: p.image | append: '-1600.webp' | relative_url }}">
+                    <img src="{{ '/resources/img/' | append: p.image | append: '-800.webp' | relative_url }}"
+                         srcset="{% include srcset.html file=p.image widths="800,1600" %}"
+                         sizes="(max-width: 900px) 90vw, 480px"
+                         width="800" height="450"
+                         alt="{{ p.image_alt | escape }}"
+                         loading="lazy">
+                </a>
+                {%- if p.second_image %}
+                {%- assign second = p.second_image %}
+                {%- if second.large %}
+                <a class="shot shot--sub" href="{{ '/resources/img/' | append: second.large | relative_url }}">
+                {%- else %}
+                <figure class="shot shot--sub">
+                {%- endif %}
+                    <img src="{{ '/resources/img/' | append: second.file | relative_url }}"
+                         width="{{ second.w }}" height="{{ second.h }}"
+                         alt="{{ second.alt | escape }}"
+                         loading="lazy">
+                {%- if second.large %}
+                </a>
+                {%- else %}
+                </figure>
+                {%- endif %}
+                {%- endif %}
+            </div>
+            {%- if p.diagram == "controls" %}
+
+            <div class="control-diagram" role="img" aria-label="The game is controlled by moving the mouse to aim and a single click to act">
+                <div class="control-node">
+                    {% include icon.html name="pointer" %}
+                    <span>Aim</span>
+                </div>
+                <div class="control-line" aria-hidden="true"></div>
+                <div class="control-node">
+                    <span class="click-ring"></span>
+                    <span>Act</span>
+                </div>
+            </div>
+            {%- endif %}
+        </div>
+{%- endcapture %}
+
+    <article class="spotlight{% if p.flip %} spotlight--flip{% endif %} card spot-{{ p.accent }}" id="{{ p.id }}" aria-labelledby="{{ p.id }}-title">
+        {%- unless p.flip %}{{ media }}{% endunless %}
+
+        <div class="spotlight__copy">
+            <p class="eyebrow">{{ p.eyebrow }}</p>
+            <h2 id="{{ p.id }}-title">{{ p.title }}</h2>
+            <p class="tagline">{{ p.tagline }}</p>
+
+            {{ p.body | markdownify }}
+            {%- if p.diagram == "flow" %}
+
+            <div class="flow-diagram" role="img" aria-label="{{ p.flow | join: ', then ' | prepend: ': ' | prepend: p.flow_label | escape }}">
+                {%- for step in p.flow %}
+                {%- unless forloop.first %}
+                <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                {%- endunless %}
+                <span class="flow-node{% if forloop.last %} flow-node--accent{% endif %}">{{ step }}</span>
+                {%- endfor %}
+            </div>
+            {%- endif %}
+
+            <ul class="chips" role="list" aria-label="Technology used">
+                {%- for item in p.tech %}
+                <li>{{ item }}</li>
+                {%- endfor %}
+            </ul>
+            {%- if p.repo or p.itch and site.itch.url %}
+
+            <div class="btn-row spotlight__actions">
+                {%- if p.itch and site.itch.url %}
+                <a href="{{ site.itch.url }}" class="btn btn--spot" target="_blank" rel="noopener">
+                    {% include icon.html name="play" %} Play {{ p.title }} on itch.io
+                </a>
+                {%- endif %}
+                {%- if p.repo %}
+                <a href="{{ p.repo }}" class="btn btn--spot" target="_blank" rel="noopener">
+                    {% include icon.html name="github" %} See the {{ p.title }} source on GitHub
+                </a>
+                {%- endif %}
+            </div>
+            {%- endif %}
+        </div>
+        {%- if p.flip %}{{ media }}{% endif %}
+        {%- if p.itch and site.itch.embed_src %}
+
+        {%- comment %}
+          The game is a ~25 MB download, so js/projects.js only swaps in the
+          itch.io iframe when someone clicks. Without JS this is a plain link.
+        {% endcomment %}
+        <div class="spotlight__embed" style="--embed-w: {{ site.itch.embed_width | default: 640 }}; --embed-h: {{ site.itch.embed_height | default: 380 }};">
+            <a class="play-launcher" href="{{ site.itch.url | default: site.itch.embed_src }}"
+               data-embed-src="{{ site.itch.embed_src }}"
+               data-embed-title="{{ p.title | append: ' (playable itch.io embed)' | escape }}"
+               data-embed-width="{{ site.itch.embed_width | default: 640 }}"
+               data-embed-height="{{ site.itch.embed_height | default: 380 }}">
+                <span class="play-launcher__icon">{% include icon.html name="play" %}</span>
+                <span class="play-launcher__title">Play {{ p.title }} in your browser</span>
+                <span class="play-launcher__meta">Move the mouse to aim, click to act · loads about 25 MB</span>
+            </a>
+        </div>
+        {%- endif %}
+    </article>

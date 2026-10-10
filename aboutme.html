@@ -27,8 +27,8 @@ signature_font: true
     <div class="about-body">
         <section class="about-section prose" aria-label="Introduction">
             <p class="about-intro">
-                I'm Nicolás Tovar Cobos, or Niko: a junior software developer and computer science
-                engineering student at Universidad San Francisco de Quito, in {{ site.location }}.
+                I'm {{ site.author.full_name }}, or Niko: a junior software developer and computer science
+                engineering student at {{ site.author.university.name }}, in {% include location.html %}.
             </p>
             <p>
                 My experience spans data analysis, full-stack applications and digital marketing
@@ -69,7 +69,7 @@ signature_font: true
         <section class="about-section" aria-labelledby="education-title">
             <h2 id="education-title">Education</h2>
             <p class="prose">
-                I'm studying Computer Science Engineering at USFQ, with strong foundations in data
+                I'm studying Computer Science Engineering at {{ site.author.university.short_name }}, with strong foundations in data
                 structures, algorithms and software architecture, and I keep learning through
                 hands-on projects and new tools.
             </p>
