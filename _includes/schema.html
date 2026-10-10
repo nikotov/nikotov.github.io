@@ -54,7 +54,7 @@
         {%- if project.schema_type == 'VideoGame' %},
         "genre": "Arcade",
         "award": {{ project.award | jsonify }},
-        "gamePlatform": "PC"
+        "gamePlatform": "Web browser"
         {%- if site.itch.url %},
         "sameAs": {{ site.itch.url | jsonify }}
         {%- endif %}

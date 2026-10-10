@@ -9,6 +9,8 @@ redirect_from: /projects.html
 css: projects
 schema: projects
 image: /resources/og-projects.jpg
+scripts:
+  - /js/projects.js
 ---
 <section class="page-head container">
     <div class="page-title">
@@ -86,10 +88,20 @@ image: /resources/og-projects.jpg
         </div>
 
         {%- if site.itch.embed_src %}
-        <div class="spotlight__embed" style="--embed-w: {{ site.itch.embed_width | default: 552 }}; --embed-h: {{ site.itch.embed_height | default: 167 }};">
-            <iframe src="{{ site.itch.embed_src }}" title="Get Otter Here! on itch.io"
-                    width="{{ site.itch.embed_width | default: 552 }}" height="{{ site.itch.embed_height | default: 167 }}"
-                    loading="lazy" allowfullscreen></iframe>
+        {%- comment %}
+          The game is a ~25 MB download, so js/projects.js only swaps in the
+          itch.io iframe when someone clicks. Without JS this is a plain link.
+        {% endcomment %}
+        <div class="spotlight__embed" style="--embed-w: {{ site.itch.embed_width | default: 640 }}; --embed-h: {{ site.itch.embed_height | default: 380 }};">
+            <a class="play-launcher" href="{{ site.itch.url | default: site.itch.embed_src }}"
+               data-embed-src="{{ site.itch.embed_src }}"
+               data-embed-title="Get Otter Here! (playable itch.io embed)"
+               data-embed-width="{{ site.itch.embed_width | default: 640 }}"
+               data-embed-height="{{ site.itch.embed_height | default: 380 }}">
+                <span class="play-launcher__icon">{% include icon.html name="play" %}</span>
+                <span class="play-launcher__title">Play Get Otter Here! in your browser</span>
+                <span class="play-launcher__meta">Move the mouse to aim, click to act · loads about 25 MB</span>
+            </a>
         </div>
         {%- endif %}
     </article>

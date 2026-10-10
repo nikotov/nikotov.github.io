@@ -42,6 +42,7 @@ social:
   links:
     - https://github.com/nikotov
     - https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303
+    - https://nikotov.itch.io
 
 # Integrations. Leave a value empty to turn that feature off.
 #   formspree_id: the ID from https://formspree.io/f/<id>. Empty = the contact
@@ -52,10 +53,10 @@ social:
 #   cv:           path to a PDF, e.g. /resources/cv.pdf. Adds a "Download CV" button.
 formspree_id:
 itch:
-  url:
-  embed_src:
-  embed_width:
-  embed_height:
+  url: https://nikotov.itch.io/get-otter-here
+  embed_src: https://itch.io/embed-upload/19266931?color=3c3c3c
+  embed_width: 640
+  embed_height: 380
 cv:
 
 # Search engine verification (rendered by jekyll-seo-tag). Uncomment and paste

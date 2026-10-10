@@ -52,7 +52,8 @@
     gap: 1.25rem;
 }
 
-/* itch.io embed, full width under the spotlight, keeping the embed's ratio */
+/* itch.io game, full width under the spotlight at the embed's ratio. The
+   click-to-play launcher is replaced by the iframe (js/projects.js). */
 .spotlight__embed {
     grid-column: 1 / -1;
     width: 100%;
@@ -60,12 +61,77 @@
     margin-inline: auto;
 }
 
-.spotlight__embed iframe {
+.spotlight__embed iframe,
+.play-launcher {
     width: 100%;
     height: auto;
     aspect-ratio: var(--embed-w) / var(--embed-h);
-    border: 0;
     border-radius: 12px;
+}
+
+.spotlight__embed iframe {
+    border: 0;
+    background: #3c3c3c; /* matches the embed's color= so it doesn't flash while loading */
+}
+
+.play-launcher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    background-color: #15181c;
+    background-image: radial-gradient(circle at 50% 42%, rgba(63, 167, 160, 0.22), transparent 62%), var(--stripes);
+    text-align: center;
+    text-decoration: none;
+    transition: border-color 0.2s ease;
+}
+
+.play-launcher:hover {
+    border-color: var(--game);
+}
+
+.play-launcher__icon {
+    width: 76px;
+    height: 76px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--game);
+    color: var(--bg);
+    transition: transform 0.2s ease;
+}
+
+.play-launcher:hover .play-launcher__icon {
+    transform: scale(1.08);
+}
+
+.play-launcher__icon .icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
+    fill: currentColor;
+}
+
+.play-launcher__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+    color: #fff;
+}
+
+.play-launcher__meta {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* The game needs a mouse, so touch devices only get the "Play on itch.io" button */
+@media (hover: none), (pointer: coarse) {
+    .spotlight__embed {
+        display: none;
+    }
 }
 
 /* ---------- screenshot pair: a main shot with a smaller one overlapping ---------- */
