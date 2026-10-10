@@ -1,0 +1,15 @@
+<header class="site-header">
+    <div class="container site-header__inner">
+        <a href="{{ '/' | relative_url }}" class="site-logo" aria-label="{{ site.author.name }}, home">{% include logo.svg %}</a>
+
+        <nav class="site-nav" aria-label="Main">
+            <ul role="list">
+                {%- for item in site.data.nav %}
+                <li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+                {%- endfor %}
+            </ul>
+        </nav>
+
+        {% include social-links.html %}
+    </div>
+</header>

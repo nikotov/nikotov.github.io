@@ -1,168 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Projects | Niko</title>
-    <meta name="description" content="Two projects by Nicolas Tovar: Get Otter Here!, a one-button Godot game that won Hack2Interact, and Clean CRM, an open-source WhatsApp campaign tool.">
-    <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/projects.css">
-</head>
-<body>
-    <main class="site-frame">
-        <header class="frame-header">
-            <a href="index.html" class="logo-link" aria-label="Niko's homepage">
-                <img src="resources/logo.svg" alt="Niko logo" class="logo-mark">
-            </a>
+---
+title: "Projects: Get Otter Here! & Clean CRM"
+nav_title: Projects
+description: >-
+  Two projects by Nicolás Tovar: Get Otter Here!, a one-button Godot game that won the
+  Hack2Interact jam, and Clean CRM, an open-source WhatsApp campaign tool.
+permalink: /projects/
+redirect_from: /projects.html
+css: projects
+schema: projects
+image: /resources/og-projects.png
+---
+<section class="page-head container">
+    <div class="page-title">
+        <h1>Projects</h1>
+        <span class="stripes" aria-hidden="true"></span>
+    </div>
+    <p class="page-lede">Two projects I'm proudest of: a game jam winner built around one rule, and an open-source tool built around one workflow.</p>
+</section>
 
-            <nav class="top-bar" aria-label="Profile links">
-                <a href="https://github.com/nikotov" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                    <i class="fa fa-github"></i>
+<div class="container projects">
+    <!-- ============ GET OTTER HERE! ============ -->
+    <article class="spotlight card spot-game" id="otter" aria-labelledby="otter-title">
+        <div class="spotlight__media">
+            <div class="shot-duo">
+                <a class="shot shot--main" href="{{ '/resources/img/get-otter-here-title-screen-1600.webp' | relative_url }}">
+                    <img src="{{ '/resources/img/get-otter-here-title-screen-800.webp' | relative_url }}"
+                         srcset="{{ '/resources/img/get-otter-here-title-screen-800.webp' | relative_url }} 800w, {{ '/resources/img/get-otter-here-title-screen-1600.webp' | relative_url }} 1600w"
+                         sizes="(max-width: 900px) 90vw, 480px"
+                         width="800" height="450"
+                         alt="Get Otter Here! title screen with pixel-art otters and the Play, How to play and Quit menu"
+                         loading="lazy">
                 </a>
-                <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-dark btn-sm rounded-4 contact-square-btn" aria-label="Contact page">
-                    <i class="fa fa-envelope"></i> Contact me
-                </a>
-            </nav>
-        </header>
-
-        <section class="canvas" aria-label="Projects content">
-            <div class="title-row">
-                <h1>Projects</h1>
-                <span class="stripes" aria-hidden="true"></span>
+                <figure class="shot shot--sub">
+                    <img src="{{ '/resources/img/get-otter-here-logo-486.webp' | relative_url }}"
+                         width="486" height="375"
+                         alt="Get Otter Here! logo in pink and purple pixel lettering"
+                         loading="lazy">
+                </figure>
             </div>
-            <p class="projects-intro">Two projects I'm proudest of: a game jam winner built around one rule, and an open-source tool built around one workflow.</p>
 
-            <!-- ============ SPOTLIGHT 1: GET OTTER HERE! ============ -->
-            <article class="spotlight spotlight--game">
-                <div class="spotlight-media">
-                    <div class="shot-stack">
-                        <figure class="shot shot-a">
-                            <img src="resources/img/get-otter-here-logo-486.webp" alt="Get Otter Here! gameplay screenshot 1" loading="lazy">
-                        </figure>
-                        <figure class="shot shot-b">
-                            <img src="resources/img/get-otter-here-title-screen-800.webp" alt="Get Otter Here! gameplay screenshot 2" loading="lazy">
-                        </figure>
-                    </div>
-
-                    <div class="control-diagram" role="img" aria-label="Diagram showing the game is controlled with mouse movement to aim and a single click to act">
-                        <div class="control-node control-mouse">
-                            <i class="fa fa-mouse-pointer"></i>
-                            <span>aim</span>
-                        </div>
-                        <div class="control-line" aria-hidden="true"></div>
-                        <div class="control-node control-click">
-                            <span class="click-ring"></span>
-                            <span>act</span>
-                        </div>
-                    </div>
+            <div class="control-diagram" role="img" aria-label="The game is controlled by moving the mouse to aim and a single click to act">
+                <div class="control-node">
+                    {% include icon.html name="pointer" %}
+                    <span>Aim</span>
                 </div>
-
-                <div class="spotlight-copy">
-                    <p class="eyebrow">Hack2Interact Game Jam &mdash; Winner</p>
-                    <h2>Get Otter Here!</h2>
-                    <p class="tagline">A game where the entire control scheme is a mouse and one button.</p>
-
-                    <p>
-                        Every mechanic, movement, timing, decisions, had to be expressed through a single
-                        click and where you point the cursor. I directed the team through that constraint:
-                        keeping the design honest to "one button" while making sure it never felt thin.
-                        My own work was split between optimization, keeping the game smooth on modest
-                        hardware during a tight jam deadline, and the visual polish that gives each level
-                        its personality.
-                    </p>
-                    <p>
-                        It placed first at Hack2Interact, judged on how fully a team could build a complete,
-                        polished experience around one restriction.
-                    </p>
-
-                    <ul class="tech-badges" aria-label="Technology used">
-                        <li>Godot</li>
-                        <li>GDScript</li>
-                        <li>One-button design</li>
-                    </ul>
-
-                    <div class="spotlight-actions">
-                        <a href="resources/downloads/get-otter-here.zip" class="btn-spot btn-spot--primary" download>
-                            <i class="fa fa-download"></i> Download for Windows
-                        </a>
-                    </div>
+                <div class="control-line" aria-hidden="true"></div>
+                <div class="control-node">
+                    <span class="click-ring"></span>
+                    <span>Act</span>
                 </div>
-            </article>
-
-            <!-- ============ SPOTLIGHT 2: CLEAN CRM ============ -->
-            <article class="spotlight spotlight--crm">
-                <div class="spotlight-copy">
-                    <p class="eyebrow">Open Source &mdash; GitHub</p>
-                    <h2>Clean CRM</h2>
-                    <p class="tagline">A lightweight CRM built to run WhatsApp campaigns without the bloat.</p>
-
-                    <p>
-                        Clean CRM connects to the YCloud API so a team can plan, send, and track WhatsApp
-                        campaigns from one clean interface instead of juggling spreadsheets and a separate
-                        messaging dashboard. The goal was to keep the whole stack simple enough that anyone
-                        could read the codebase in an afternoon: server-rendered templates, a straightforward
-                        relational schema, and migrations that actually document what changed and why.
-                    </p>
-
-                    <div class="flow-diagram" role="img" aria-label="Diagram showing the campaign flow: Contact list to Campaign to YCloud API to WhatsApp delivery">
-                        <span class="flow-node">Contact list</span>
-                        <span class="flow-arrow" aria-hidden="true">&rarr;</span>
-                        <span class="flow-node">Campaign</span>
-                        <span class="flow-arrow" aria-hidden="true">&rarr;</span>
-                        <span class="flow-node">YCloud API</span>
-                        <span class="flow-arrow" aria-hidden="true">&rarr;</span>
-                        <span class="flow-node flow-node--accent">WhatsApp</span>
-                    </div>
-
-                    <ul class="tech-badges" aria-label="Technology used">
-                        <li>Python</li>
-                        <li>Jinja2</li>
-                        <li>PostgreSQL</li>
-                        <li>Alembic</li>
-                        <li>YCloud API</li>
-                    </ul>
-
-                    <div class="spotlight-actions">
-                        <a href="https://github.com/nikotov/clean_crm/tree/main" class="btn-spot btn-spot--primary" target="_blank" rel="noopener noreferrer">
-                            <i class="fa fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <div class="spotlight-media">
-                    <div class="shot-stack shot-stack--crm">
-                        <figure class="shot shot-a">
-                            <img src="resources/img/clean-crm-sign-in-800.webp" alt="Clean CRM dashboard screenshot 1" loading="lazy">
-                        </figure>
-                        <figure class="shot shot-b">
-                            <img src="resources/img/clean-crm-campaigns-800.webp" alt="Clean CRM dashboard screenshot 2" loading="lazy">
-                        </figure>
-                    </div>
-                </div>
-            </article>
-
-            <div class="pill-row" aria-label="Page navigation">
-                <span class="stripes" aria-hidden="true"></span>
-                <a href="aboutme.html">About Me</a>
-                <a href="#">Projects</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-                <span class="stripes" aria-hidden="true"></span>
             </div>
-        </section>
+        </div>
 
-        <footer class="frame-footer">
-            <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
-        </footer>
-    </main>
-</body>
-</html>
+        <div class="spotlight__copy">
+            <p class="eyebrow">Hack2Interact Game Jam · Winner</p>
+            <h2 id="otter-title">Get Otter Here!</h2>
+            <p class="tagline">A game where the entire control scheme is a mouse and one button.</p>
+
+            <p>
+                Every mechanic (movement, timing, decisions) had to be expressed through a single
+                click and where you point the cursor. I directed the team through that constraint,
+                keeping the design honest to "one button" while making sure it never felt thin.
+                My own work was split between optimization, keeping the game smooth on modest
+                hardware under a tight jam deadline, and the visual polish that gives each level
+                its personality.
+            </p>
+            <p>
+                It placed first at Hack2Interact, judged on how fully a team could build a complete,
+                polished experience around one restriction.
+            </p>
+
+            <ul class="chips" role="list" aria-label="Technology used">
+                <li>Godot</li>
+                <li>GDScript</li>
+                <li>One-button design</li>
+            </ul>
+
+            {%- if site.itch.url %}
+            <div class="btn-row spotlight__actions">
+                <a href="{{ site.itch.url }}" class="btn btn--spot" target="_blank" rel="noopener">
+                    {% include icon.html name="play" %} Play Get Otter Here! on itch.io
+                </a>
+            </div>
+            {%- endif %}
+        </div>
+
+        {%- if site.itch.embed_src %}
+        <div class="spotlight__embed" style="--embed-w: {{ site.itch.embed_width | default: 552 }}; --embed-h: {{ site.itch.embed_height | default: 167 }};">
+            <iframe src="{{ site.itch.embed_src }}" title="Get Otter Here! on itch.io"
+                    width="{{ site.itch.embed_width | default: 552 }}" height="{{ site.itch.embed_height | default: 167 }}"
+                    loading="lazy" allowfullscreen></iframe>
+        </div>
+        {%- endif %}
+    </article>
+
+    <!-- ============ CLEAN CRM ============ -->
+    <article class="spotlight spotlight--flip card spot-crm" id="clean-crm" aria-labelledby="crm-title">
+        <div class="spotlight__copy">
+            <p class="eyebrow">Open source · GitHub</p>
+            <h2 id="crm-title">Clean CRM</h2>
+            <p class="tagline">A lightweight CRM built to run WhatsApp campaigns without the bloat.</p>
+
+            <p>
+                Clean CRM connects to the YCloud API so a team can plan, send and track WhatsApp
+                campaigns from one clean interface instead of juggling spreadsheets and a separate
+                messaging dashboard. The goal was to keep the whole stack simple enough that anyone
+                could read the codebase in an afternoon: server-rendered templates, a straightforward
+                relational schema, and migrations that actually document what changed and why.
+            </p>
+
+            <div class="flow-diagram" role="img" aria-label="Campaign flow: contact list, then campaign, then the YCloud API, then WhatsApp delivery">
+                <span class="flow-node">Contact list</span>
+                <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                <span class="flow-node">Campaign</span>
+                <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                <span class="flow-node">YCloud API</span>
+                <span class="flow-arrow" aria-hidden="true">&rarr;</span>
+                <span class="flow-node flow-node--accent">WhatsApp</span>
+            </div>
+
+            <ul class="chips" role="list" aria-label="Technology used">
+                <li>Python</li>
+                <li>Jinja2</li>
+                <li>PostgreSQL</li>
+                <li>Alembic</li>
+                <li>YCloud API</li>
+            </ul>
+
+            <div class="btn-row spotlight__actions">
+                <a href="https://github.com/nikotov/clean_crm" class="btn btn--spot" target="_blank" rel="noopener">
+                    {% include icon.html name="github" %} See the Clean CRM source on GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="spotlight__media">
+            <div class="shot-duo">
+                <a class="shot shot--main" href="{{ '/resources/img/clean-crm-campaigns-1600.webp' | relative_url }}">
+                    <img src="{{ '/resources/img/clean-crm-campaigns-800.webp' | relative_url }}"
+                         srcset="{{ '/resources/img/clean-crm-campaigns-800.webp' | relative_url }} 800w, {{ '/resources/img/clean-crm-campaigns-1600.webp' | relative_url }} 1600w"
+                         sizes="(max-width: 900px) 90vw, 480px"
+                         width="800" height="450"
+                         alt="Clean CRM campaigns screen with template counts and a form to create a draft WhatsApp campaign"
+                         loading="lazy">
+                </a>
+                <a class="shot shot--sub" href="{{ '/resources/img/clean-crm-sign-in-1600.webp' | relative_url }}">
+                    <img src="{{ '/resources/img/clean-crm-sign-in-800.webp' | relative_url }}"
+                         width="800" height="450"
+                         alt="Clean CRM sign-in screen for the admin workspace"
+                         loading="lazy">
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <aside class="more-card card" aria-labelledby="more-title">
+        <div>
+            <h2 id="more-title">More on GitHub</h2>
+            <p class="muted">Smaller experiments, and the source for this site, live on my GitHub profile.</p>
+        </div>
+        <a class="btn btn--ghost" href="{{ site.github_url }}?tab=repositories" target="_blank" rel="noopener">
+            Browse my repositories {% include icon.html name="external" %}
+        </a>
+    </aside>
+</div>

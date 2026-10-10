@@ -1,0 +1,16 @@
+{%- comment -%}
+  Vertical timeline: {% include timeline.html entries=site.data.timeline.education %}
+  Renders nothing when the list is empty.
+{%- endcomment -%}
+{%- if include.entries and include.entries.size > 0 %}
+<ol class="timeline" role="list">
+    {%- for entry in include.entries %}
+    <li>
+        {%- if entry.year %}<p class="timeline__year">{{ entry.year }}</p>{% endif %}
+        <h3>{{ entry.title }}</h3>
+        {%- if entry.place %}<p class="timeline__place">{{ entry.place }}</p>{% endif %}
+        {%- if entry.text %}<p>{{ entry.text }}</p>{% endif %}
+    </li>
+    {%- endfor %}
+</ol>
+{%- endif %}

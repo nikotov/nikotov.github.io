@@ -1,0 +1,9 @@
+# Education and career milestones for the About page timeline. Each list is
+# shown only when it has entries. Example entry:
+#
+#   - year: 2021 – 2025
+#     title: B.Sc. Software Engineering
+#     place: University name
+#     text: One line on what you focused on.
+education: []
+path: []

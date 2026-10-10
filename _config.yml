@@ -1,0 +1,86 @@
+# Site settings. GitHub Pages builds this site with Jekyll on every push to
+# main. Values here are the single source of truth for the name, links and
+# integrations used across the layout, includes and SEO tags.
+
+title: Nicolás Tovar
+tagline: Developer & Photographer in Ecuador
+description: >-
+  Nicolás Tovar (Niko) is a developer and photographer in Ecuador: a Hack2Interact
+  game jam winner, open-source tools, and portrait, wildlife and real estate photography.
+url: https://nikotov.dev
+baseurl: ""
+lang: en_US
+# No Jekyll theme: the layout and CSS are all in this repo.
+theme: null
+
+author:
+  name: Nicolás Tovar
+  url: https://nikotov.dev
+  job_title: Developer & Photographer
+  # Other spellings people search for; used in the Person structured data.
+  alternate_names:
+    - Niko
+    - Nicolas Tovar
+    - Nicolás Tovar Cobos
+    - nikotov
+  knows_about:
+    - Web development
+    - Game development
+    - Godot
+    - Python
+    - PostgreSQL
+    - Photography
+
+# Profiles. jekyll-seo-tag also uses social.links for the sameAs list.
+email: nicolastovar18@hotmail.com
+location: Ecuador
+availability: Open to freelance and full-time opportunities
+github_url: https://github.com/nikotov
+linkedin_url: https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303
+social:
+  name: Nicolás Tovar
+  links:
+    - https://github.com/nikotov
+    - https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303
+
+# Integrations. Leave a value empty to turn that feature off.
+#   formspree_id: the ID from https://formspree.io/f/<id>. Empty = the contact
+#                 form falls back to opening a pre-filled email.
+#   itch.url:     the game's itch.io page. Adds a "Play on itch.io" button.
+#   itch.embed_*: the src, width and height from itch.io's embed code. Adds the
+#                 embed under the Get Otter Here! spotlight.
+#   cv:           path to a PDF, e.g. /resources/cv.pdf. Adds a "Download CV" button.
+formspree_id:
+itch:
+  url:
+  embed_src:
+  embed_width:
+  embed_height:
+cv:
+
+# Search engine verification (rendered by jekyll-seo-tag). Uncomment and paste
+# the token from Google Search Console / Bing Webmaster Tools.
+# webmaster_verifications:
+#   google:
+#   bing:
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /resources/og-image.png
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+exclude:
+  - scripts/
+  - Gemfile
+  - Gemfile.lock
+  - CLAUDE.md
+  - README.md
+  - vendor/
+  - .bundle/

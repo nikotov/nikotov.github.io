@@ -1,0 +1,7 @@
+# Skills shown on the About page, grouped. Edit freely.
+- group: Languages
+  items: [Python, GDScript, JavaScript, HTML & CSS, SQL]
+- group: Frameworks & tools
+  items: [Godot, Jinja2, PostgreSQL, Alembic, Git & GitHub]
+- group: Photography
+  items: [Studio portraits, Wildlife, Real estate, Editing]

@@ -1,97 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gallery | Niko</title>
-    <meta name="description" content="A curated gallery of visuals from Nicolas Tovar's experiments, concepts, and product snapshots.">
-    <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/gallery.css">
-</head>
-<body>
-    <main class="site-frame">
-        <header class="frame-header">
-            <a href="index.html" class="logo-link" aria-label="Niko's homepage">
-                <img src="resources/logo.svg" alt="Niko logo" class="logo-mark">
+---
+title: Photography gallery
+nav_title: Gallery
+description: >-
+  Photography by Nicolás Tovar (Niko): studio and garden portraits, wildlife, real
+  estate interiors, street snapshots and experimental still life.
+permalink: /gallery/
+redirect_from: /gallery.html
+css: gallery
+schema: gallery
+image: /resources/og-gallery.png
+scripts:
+  - /js/gallery.js
+---
+<section class="page-head container">
+    <div class="page-title">
+        <h1>Gallery</h1>
+        <span class="stripes" aria-hidden="true"></span>
+    </div>
+    <p class="page-lede">
+        Photography is the other half of how I think about design: composition, light and color.
+        Here's a selection of studio and portrait work, wildlife, real estate and a few experiments.
+        Select any photo to see it larger.
+    </p>
+</section>
+
+<div class="container">
+    <div class="masonry">
+        {%- for photo in site.data.gallery %}
+        <figure class="masonry__item">
+            <a href="{{ '/resources/img/' | append: photo.file | append: '-1600.webp' | relative_url }}"
+               data-lightbox data-width="{{ photo.lw }}" data-height="{{ photo.lh }}"
+               data-caption="{{ photo.category }} · {{ photo.title }}">
+                <img src="{{ '/resources/img/' | append: photo.file | append: '-800.webp' | relative_url }}"
+                     width="{{ photo.w }}" height="{{ photo.h }}"
+                     alt="{{ photo.alt }}" loading="lazy">
             </a>
+            <figcaption>
+                <span class="masonry__category">{{ photo.category }}</span>
+                <span class="masonry__title">{{ photo.title }}</span>
+            </figcaption>
+        </figure>
+        {%- endfor %}
+    </div>
+</div>
 
-            <nav class="top-bar" aria-label="Profile links">
-                <a href="https://github.com/nikotov" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-dark btn-sm rounded-4 contact-square-btn" aria-label="Contact page">
-                    <i class="fa fa-envelope"></i> Contact
-                </a>
-            </nav>
-        </header>
-
-        <section class="canvas" aria-label="Gallery content">
-            <section class="gallery-block" id="gallery">
-                <div class="title-row">
-                    <h1>Gallery</h1>
-                    <span class="stripes" aria-hidden="true"></span>
-                </div>
-
-                <p class="gallery-intro">
-                    A curated selection of visuals from experiments, concepts, and product snapshots.
-                    Each piece reflects my focus on composition, color balance, and practical storytelling.
-                </p>
-
-                <div class="gallery-grid">
-                    <figure class="gallery-card card-a">
-                        <img src="resources/img/studio-portrait-suit-wine-800.webp" alt="Studio Photography" loading="lazy">
-                        <figcaption>Studio Photography</figcaption>
-                    </figure>
-
-                    <figure class="gallery-card card-b">
-                        <img src="resources/img/wildlife-owl-autumn-leaves-800.webp" alt="Wildlife Photography" loading="lazy">
-                        <figcaption>Wildlife Photography</figcaption>
-                    </figure>
-
-                    <figure class="gallery-card card-c">
-                        <img src="resources/img/portrait-dark-curly-hair-800.webp" alt="Portraits sample" loading="lazy">
-                        <figcaption>Portraits</figcaption>
-                    </figure>
-
-                    <figure class="gallery-card card-d">
-                        <img src="resources/img/experimental-macro-capsules-800.webp" alt="Experimental sample" loading="lazy">
-                        <figcaption>Experimental</figcaption>
-                    </figure>
-
-                    <figure class="gallery-card card-e">
-                        <img src="resources/img/snapshot-red-telephone-800.webp" alt="Snapshot Photography" loading="lazy">
-                        <figcaption>Snapshot Photography</figcaption>
-                    </figure>
-
-                    <figure class="gallery-card card-f">
-                        <img src="resources/img/real-estate-art-courtyard-800.webp" alt="Real Estate Photography" loading="lazy">
-                        <figcaption>Real Estate Photography</figcaption>
-                    </figure>
-                </div>
-            </section>
-
-            <div class="pill-row" aria-label="Page navigation">
-                <span class="stripes" aria-hidden="true"></span>
-                <a href="aboutme.html">About me</a>
-                <a href="projects.html">Projects</a>
-                <a href="#">Gallery</a>
-                <a href="contact.html">Contact</a>
-                <span class="stripes" aria-hidden="true"></span>
-            </div>
-        </section>
-
-        <footer class="frame-footer">
-            <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
-        </footer>
-    </main>
-</body>
-</html>
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <figure class="lightbox__figure">
+        <img alt="">
+        <figcaption></figcaption>
+    </figure>
+    <button type="button" class="lightbox__btn lightbox__close" data-close aria-label="Close photo viewer">{% include icon.html name="close" %}</button>
+    <button type="button" class="lightbox__btn lightbox__prev" data-prev aria-label="Previous photo">{% include icon.html name="chevron-left" %}</button>
+    <button type="button" class="lightbox__btn lightbox__next" data-next aria-label="Next photo">{% include icon.html name="chevron-right" %}</button>
+</dialog>

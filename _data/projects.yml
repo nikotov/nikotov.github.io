@@ -1,0 +1,23 @@
+# Featured projects. Used by the home page cards and the Projects structured
+# data; the full write-ups live in projects.html. `image` is the base name of a
+# 16:9 screenshot in resources/img/ (with -800 and -1600 versions).
+- id: otter
+  title: Get Otter Here!
+  eyebrow: Hack2Interact Game Jam · Winner
+  tagline: A game where the entire control scheme is a mouse and one button.
+  image: get-otter-here-title-screen
+  image_alt: Get Otter Here! title screen with pixel-art otters and the Play, How to play and Quit menu
+  accent: game
+  schema_type: VideoGame
+  award: First place, Hack2Interact Game Jam
+  tech: [Godot, GDScript]
+- id: clean-crm
+  title: Clean CRM
+  eyebrow: Open source
+  tagline: A lightweight CRM built to run WhatsApp campaigns without the bloat.
+  image: clean-crm-campaigns
+  image_alt: Clean CRM campaigns screen for planning and sending WhatsApp campaigns
+  accent: crm
+  schema_type: SoftwareSourceCode
+  repo: https://github.com/nikotov/clean_crm
+  tech: [Python, Jinja2, PostgreSQL, Alembic, YCloud API]

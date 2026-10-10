@@ -1,102 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About Me | Niko</title>
-    <meta name="description" content="About Nicolas Tovar — a developer focused on design, technology, and storytelling through digital products.">
-    <link rel="icon" type="image/svg+xml" href="resources/logo.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Nunito+Sans:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/aboutme.css">
-</head>
-<body>
-    <main class="site-frame">
-        <header class="frame-header">
-            <a href="index.html" class="logo-link" aria-label="Niko's homepage">
-                <img src="resources/logo.svg" alt="Niko logo" class="logo-mark">
-            </a>
+---
+title: About me
+nav_title: About
+description: >-
+  About Nicolás Tovar Cobos (Niko), a developer and photographer in Ecuador who
+  builds fast, clear, visually intentional products, from first wireframe to deployment.
+permalink: /about/
+redirect_from: /aboutme.html
+css: aboutme
+signature_font: true
+---
+<section class="page-head container">
+    <div class="page-title">
+        <h1>About me</h1>
+        <span class="stripes" aria-hidden="true"></span>
+    </div>
+</section>
 
-            <nav class="top-bar" aria-label="Profile links">
-                <a href="https://github.com/nikotov" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                    <i class="fa fa-github"></i>
-                </a>
-                <a href="https://ec.linkedin.com/in/nicol%C3%A1s-tovar-cobos-568b17303" class="btn btn-outline-dark btn-sm rounded-circle" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                    <i class="fa fa-linkedin"></i>
-                </a>
-                <a href="mailto:nicolastovar18@hotmail.com" class="btn btn-outline-dark btn-sm rounded-4 contact-square-btn" aria-label="Contact page">
-                    <i class="fa fa-envelope"></i> Contact
-                </a>
-            </nav>
-        </header>
+<div class="container about-grid">
+    <figure class="polaroid">
+        <img src="{{ '/resources/img/niko-portrait-suit-600.webp' | relative_url }}"
+             width="480" height="600"
+             alt="{{ site.author.name }} in a black suit and striped tie, looking down at a glass of red wine">
+        <figcaption>Niko</figcaption>
+    </figure>
 
-        <section class="canvas" aria-label="About page content">
-            <section class="about-block" id="about">
-                <div class="title-row">
-                    <h1>About Me</h1>
-                    <span class="stripes" aria-hidden="true"></span>
+    <div class="about-body">
+        <section class="about-section prose" aria-label="Introduction">
+            <p class="about-intro">
+                I'm Nicolás Tovar Cobos, or Niko: a developer in {{ site.location }} who cares about
+                design, technology and telling stories through digital products.
+            </p>
+            <p>
+                I like building projects that feel fast, clear and visually intentional, from the
+                first wireframe to the final deployment. My approach combines creativity with
+                structure: understand the user, plan the experience, then write maintainable code
+                that can grow over time.
+            </p>
+            <p>
+                Photography keeps that eye sharp. Composition, light and color matter just as much
+                in an interface as they do in a portrait.
+            </p>
+            {%- if site.cv %}
+            <a class="btn btn--primary" href="{{ site.cv | relative_url }}" download>{% include icon.html name="file" %} Download CV</a>
+            {%- endif %}
+        </section>
+
+        <section class="about-section" aria-labelledby="skills-title">
+            <h2 id="skills-title">Skills</h2>
+            <div class="skill-groups">
+                {%- for group in site.data.skills %}
+                <div class="skill-group">
+                    <h3>{{ group.group }}</h3>
+                    <ul class="chips" role="list">
+                        {%- for item in group.items %}
+                        <li>{{ item }}</li>
+                        {%- endfor %}
+                    </ul>
                 </div>
-
-                <div class="about-grid">
-                    <article class="photo-card" aria-label="Niko portrait card">
-                        <div class="card-inner">
-                            <img src="resources/img/niko-portrait-suit-600.webp" alt="Portrait of Niko">
-                        </div>
-                        <p class="signature">Niko</p>
-                    </article>
-
-                    <div class="copy-stack">
-                        <p>
-                            I am Nicolas Tovar, a developer passionate about design, technology, and
-                            storytelling through digital products. I like building projects that feel
-                            fast, clear, and visually intentional, from first wireframe to final deployment.
-
-                            My approach combines creativity with structure: understanding the user,
-                            planning the experience, and writing maintainable code that can grow over time.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="text-block" id="education">
-                <h2>Education</h2>
-                <p>
-                    I have focused my education on software development, web technologies, and
-                    practical project execution. Along the way, I have strengthened my foundations in
-                    frontend architecture, responsive design, version control, and collaborative workflows.
-                    I continue learning through hands-on projects, technical documentation, and
-                    experimentation with new tools.
-                </p>
-            </section>
-
-            <section class="text-block right-title" id="lifepath">
-                <h2>Lifepath</h2>
-                <p>
-                    My journey started with curiosity about how websites work and evolved into a
-                    commitment to creating meaningful digital experiences. Each project has helped me
-                    improve my technical skills, communication, and attention to detail.
-                    Today, I am focused on growing as a full-stack professional while building work that
-                    is useful, elegant, and impactful.
-                </p>
-            </section>
-
-            <div class="pill-row" aria-label="Page navigation">
-                <span class="stripes" aria-hidden="true"></span>
-                <a href="#">About me</a>
-                <a href="projects.html">Projects</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-                <span class="stripes" aria-hidden="true"></span>
+                {%- endfor %}
             </div>
         </section>
 
-        <footer class="frame-footer">
-            <small>&copy; 2026 Nicolas Tovar. All rights reserved.</small>
-        </footer>
-    </main>
-</body>
-</html>
+        <section class="about-section" aria-labelledby="education-title">
+            <h2 id="education-title">Education</h2>
+            <p class="prose">
+                I've focused my education on software development, web technologies and practical
+                project execution. Along the way I've built strong foundations in frontend
+                architecture, responsive design, version control and collaborative workflows, and I
+                keep learning through hands-on projects, documentation and experimenting with new tools.
+            </p>
+            {% include timeline.html entries=site.data.timeline.education %}
+        </section>
+
+        <section class="about-section" aria-labelledby="path-title">
+            <h2 id="path-title">Path</h2>
+            <p class="prose">
+                It started with curiosity about how websites work and grew into a commitment to
+                building meaningful digital experiences. Each project has sharpened my technical
+                skills, communication and attention to detail. Today I'm focused on growing as a
+                full-stack developer while building work that is useful, elegant and impactful.
+            </p>
+            {% include timeline.html entries=site.data.timeline.path %}
+        </section>
+    </div>
+</div>

@@ -1,284 +1,200 @@
-:root {
-    --canvas-bg: #030607;
-    --game-accent: #3fa7a0;
-    --game-accent-dim: #1f4a47;
-    --crm-accent: #25d366;
-    --crm-accent-dim: #123a24;
+/* Page-specific styles for projects.html: the project spotlights, their
+   screenshot pairs and diagrams. Cards, chips, buttons and per-project
+   accent colors (.spot-game / .spot-crm) come from base.css. */
+
+.projects {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-/* Shared header/top-bar/canvas/title-row/stripes/pill-row/footer rules
-   live in base.css. This file only covers the two project spotlights. */
-
-.canvas {
-    padding: 1.1rem 1.4rem 1.6rem;
-}
-
-.projects-intro {
-    margin: 0.9rem 0 0;
-    font-size: 1.15rem;
-    line-height: 1.4;
-    max-width: 60ch;
-    color: #cfcfcf;
-}
-
-/* ---------- spotlight sections ---------- */
+/* ---------- spotlight ---------- */
 
 .spotlight {
-    margin-top: 2.5rem;
     display: grid;
-    grid-template-columns: minmax(280px, 42%) 1fr;
-    gap: 2.2rem;
+    grid-template-columns: minmax(280px, 0.85fr) 1fr;
+    gap: clamp(1.75rem, 4vw, 3.25rem);
     align-items: center;
-    padding: 1.6rem;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    padding: clamp(1.25rem, 3vw, 2.5rem);
 }
 
-.spotlight--crm {
-    grid-template-columns: 1fr minmax(280px, 42%);
+.spotlight--flip {
+    grid-template-columns: 1fr minmax(280px, 0.85fr);
 }
 
-.spotlight--crm .spotlight-media {
-    order: 2;
-}
-
-.eyebrow {
-    margin: 0 0 0.35rem;
-    font-family: "Oswald", sans-serif;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--spot-accent, var(--title-green));
-}
-
-.spotlight--game { --spot-accent: var(--game-accent); }
-.spotlight--crm { --spot-accent: var(--crm-accent); }
-
-.spotlight-copy h2 {
-    margin: 0;
-    font-family: "Oswald", sans-serif;
-    font-size: clamp(2rem, 3.4vw, 3rem);
-    line-height: 1.05;
-    border-bottom: 4px solid var(--spot-accent, var(--accent-red));
+.spotlight h2 {
     display: inline-block;
-    padding-bottom: 0.15rem;
+    padding-bottom: 0.12em;
+    border-bottom: 4px solid var(--spot);
 }
 
 .tagline {
-    margin: 0.75rem 0 0;
+    margin: 0.9rem 0 0;
     font-size: 1.15rem;
-    color: var(--spot-accent, var(--text-light));
     font-weight: 600;
+    color: var(--spot);
 }
 
-.spotlight-copy p {
-    font-size: 1.02rem;
-    line-height: 1.45;
-    margin: 0.85rem 0 0;
-    color: #d8d8d8;
+.spotlight__copy > p:not(.eyebrow):not(.tagline) {
+    margin: 1rem 0 0;
 }
 
-.tech-badges {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 1.1rem 0 0;
-    padding: 0;
+.spotlight__copy .chips {
+    margin-top: 1.4rem;
 }
 
-.tech-badges li {
-    font-family: "Oswald", sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.03em;
-    padding: 0.3rem 0.75rem;
-    border-radius: 999px;
-    border: 1px solid var(--spot-accent, #d0d0d0);
-    color: var(--spot-accent, #d0d0d0);
+.spotlight__actions {
+    margin-top: 1.6rem;
 }
 
-.spotlight-actions {
-    margin-top: 1.3rem;
-}
-
-.btn-spot {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    font-family: "Oswald", sans-serif;
-    font-size: 1.05rem;
-    padding: 0.55rem 1.3rem;
-    border-radius: 999px;
-    border: 2px solid var(--spot-accent, #d0d0d0);
-    color: var(--spot-accent, #f2f2f2);
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
-}
-
-.btn-spot:hover {
-    background: var(--spot-accent, #d0d0d0);
-    color: #0a0a0a;
-    transform: translateY(-2px);
-}
-
-/* ---------- media: screenshot stack ---------- */
-
-.spotlight-media {
+.spotlight__media {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
-.shot-stack {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.7rem;
-}
-
-.shot {
-    margin: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.08);
-}
-
-.shot img {
+/* itch.io embed, full width under the spotlight, keeping the embed's ratio */
+.spotlight__embed {
+    grid-column: 1 / -1;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    max-width: calc(var(--embed-w) * 1px);
+    margin-inline: auto;
+}
+
+.spotlight__embed iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: var(--embed-w) / var(--embed-h);
+    border: 0;
+    border-radius: 12px;
+}
+
+/* ---------- screenshot pair: a main shot with a smaller one overlapping ---------- */
+
+.shot-duo {
+    position: relative;
+    padding-bottom: 14%;
+}
+
+.shot-duo .shot {
     display: block;
 }
 
-.shot-b {
-    margin-top: 1.3rem;
+.shot-duo .shot--main {
+    width: 90%;
 }
 
-.shot-stack--crm .shot-b {
-    margin-top: -1.3rem;
-    margin-bottom: 1.3rem;
+.shot-duo .shot--sub {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 48%;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* ---------- signature: one-button control diagram (game) ---------- */
+.shot-duo a.shot {
+    transition: border-color 0.2s ease;
+}
+
+.shot-duo a.shot:hover {
+    border-color: var(--spot);
+}
+
+/* ---------- one-button control diagram (game) ---------- */
 
 .control-diagram {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.9rem;
-    padding: 1rem 0.5rem;
+    gap: 1rem;
 }
 
 .control-node {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.3rem;
-    font-family: "Oswald", sans-serif;
+    gap: 0.35rem;
+    font-family: var(--font-display);
     font-size: 0.85rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--game-accent);
+    color: var(--game);
 }
 
-.control-node .fa {
-    font-size: 1.8rem;
+.control-node .icon {
+    width: 28px;
+    height: 28px;
 }
 
 .click-ring {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    border: 3px solid var(--game-accent);
-    box-shadow: 0 0 0 6px var(--game-accent-dim);
+    border: 3px solid var(--game);
+    box-shadow: 0 0 0 6px rgba(63, 167, 160, 0.22);
 }
 
 .control-line {
     width: 70px;
     height: 2px;
-    background: repeating-linear-gradient(
-        90deg,
-        var(--game-accent) 0,
-        var(--game-accent) 6px,
-        transparent 6px,
-        transparent 12px
-    );
+    background: repeating-linear-gradient(90deg, var(--game) 0 6px, transparent 6px 12px);
 }
 
-/* ---------- signature: campaign flow diagram (crm) ---------- */
+/* ---------- campaign flow diagram (crm) ---------- */
 
 .flow-diagram {
-    margin-top: 1.2rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
+    margin-top: 1.4rem;
 }
 
 .flow-node {
-    font-family: "Oswald", sans-serif;
-    font-size: 0.85rem;
     padding: 0.4rem 0.8rem;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
-    color: #d8d8d8;
+    background: var(--surface-2);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
 }
 
 .flow-node--accent {
-    background: var(--crm-accent-dim);
-    color: var(--crm-accent);
+    background: rgba(37, 211, 102, 0.14);
+    color: var(--crm);
 }
 
 .flow-arrow {
-    color: var(--crm-accent);
-    font-size: 1.1rem;
+    color: var(--crm);
 }
 
-/* ---------- page nav override ---------- */
-/* base.css sets the default .pill-row; this page just tightens the
-   top margin (spotlights already carry their own spacing) and shrinks
-   the decorative stripes to match the narrower pill-row here. */
+/* ---------- more on GitHub ---------- */
 
-.pill-row {
-    margin-top: 2.4rem;
+.more-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
+    padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2.5rem);
 }
 
-.pill-row .stripes {
-    width: 92px;
-    flex: 0 0 92px;
-    height: 26px;
+.more-card h2 {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+
+.more-card p {
+    margin: 0.4rem 0 0;
 }
 
 /* ---------- responsive ---------- */
 
 @media (max-width: 900px) {
     .spotlight,
-    .spotlight--crm {
+    .spotlight--flip {
         grid-template-columns: 1fr;
     }
 
-    .spotlight--crm .spotlight-media {
-        order: 0;
-    }
-
-    .shot-b,
-    .shot-stack--crm .shot-b {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-}
-
-@media (max-width: 560px) {
-    .canvas {
-        padding: 0.9rem 0.8rem 1.2rem;
-    }
-
-    .spotlight {
-        padding: 1.1rem;
-        gap: 1.4rem;
-    }
-
-    .pill-row .stripes {
-        display: none;
+    /* Screenshots above the text on every project */
+    .spotlight--flip .spotlight__media {
+        order: -1;
     }
 }
